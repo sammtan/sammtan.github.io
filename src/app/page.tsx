@@ -1,7 +1,393 @@
-import Image from "next/image";
+"use client";
+
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import AnimatedMesh from "@/components/AnimatedMesh";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { toast } from "sonner";
+import {
+  GraduationCap,
+  FolderOpen,
+  Wrench,
+  Shield,
+  FileText,
+  MapPin,
+  Clock,
+  Linkedin,
+  Instagram,
+  Github,
+  Mail,
+  Twitter,
+  Youtube,
+  Code2,
+  Cpu,
+  Brain,
+  Bug,
+  Key,
+  Zap,
+  Terminal
+} from "lucide-react";
+
+const SocialTile = ({ icon: Icon, platform, url }: { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>, platform: string, url: string }) => {
+  const getBrandColors = (platform: string) => {
+    switch (platform) {
+      case "GitHub":
+        return {
+          bg: "bg-gradient-to-br from-gray-800/80 to-gray-900/80",
+          border: "border-gray-700/50",
+          icon: "text-white"
+        };
+      case "LinkedIn":
+        return {
+          bg: "bg-gradient-to-br from-blue-600/80 to-blue-700/80",
+          border: "border-blue-600/50",
+          icon: "text-white"
+        };
+      case "Instagram":
+        return {
+          bg: "bg-gradient-to-br from-pink-600/80 to-purple-600/80",
+          border: "border-pink-500/50",
+          icon: "text-white"
+        };
+      case "X (Twitter)":
+        return {
+          bg: "bg-gradient-to-br from-gray-900/80 to-black/80",
+          border: "border-gray-700/50",
+          icon: "text-white"
+        };
+      case "Email":
+        return {
+          bg: "bg-gradient-to-br from-red-600/80 to-red-700/80",
+          border: "border-red-600/50",
+          icon: "text-white"
+        };
+      case "YouTube":
+        return {
+          bg: "bg-gradient-to-br from-red-600/80 to-red-700/80",
+          border: "border-red-600/50",
+          icon: "text-white"
+        };
+      default:
+        return {
+          bg: "bg-gradient-to-br from-slate-800/50 to-slate-900/50",
+          border: "border-slate-700/50",
+          icon: "text-slate-300"
+        };
+    }
+  };
+
+  const colors = getBrandColors(platform);
+
+  return (
+    <Card
+      className={`col-span-2 md:col-span-1 row-span-1 p-3 cursor-pointer flex items-center justify-center ${colors.bg} ${colors.border} tile-hover transition-all duration-300 hover:scale-105`}
+      onClick={() => window.open(url, '_blank')}
+    >
+      <Icon className={`w-5 h-5 md:w-6 md:h-6 ${colors.icon}`} />
+    </Card>
+  );
+};
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Show development toast after a short delay
+    const timer = setTimeout(() => {
+      toast.info("🚧 Under Development", {
+        description: "This portfolio website is still in active development. Some features may not be fully functional yet.",
+        duration: 6000,
+        action: {
+          label: "Got it",
+          onClick: () => {},
+        },
+      });
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="align-center w-full">Hello World</div>
+    <div className="min-h-screen p-4 md:p-6 lg:p-8 grid grid-cols-12 grid-rows-12 md:grid-rows-10 gap-3 md:gap-4 lg:gap-6 tile-container">
+      {/* Main Profile Tile - Full Vertical */}
+      <Card className="col-span-12 md:col-span-7 lg:col-span-8 row-span-6 p-6 relative overflow-hidden bg-gradient-to-br from-slate-900/80 to-slate-800/80 border-slate-700/50 cursor-pointer tile-hover">
+        {/* Animated Triangular Mesh - Behind everything */}
+        <div className="absolute inset-0 opacity-40 pointer-events-none">
+          <AnimatedMesh
+            width={800}
+            height={600}
+            pointCount={60}
+            maxDistance={160}
+            speed={1}
+            densityGradient={true}
+            className="w-full h-full"
+          />
+        </div>
+
+        {/* Clean blur layer */}
+        <div className="absolute inset-0 pointer-events-none z-5 backdrop-blur-md bg-gradient-to-br from-slate-900/10 via-slate-800/5 to-slate-700/8"></div>
+
+        <div className="flex flex-col h-full gap-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+            {/* Profile Photo */}
+            <div className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full bg-muted shrink-0 overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/profile.jpg"
+                alt="Samuel Tan Profile"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback to gradient background if image not found
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.style.background = 'linear-gradient(135deg, #1e293b, #475569)';
+                }}
+              />
+            </div>
+
+            <div className="flex-1 text-center md:text-left">
+              {/* Name */}
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-100 mb-2">Samuel Tan</h1>
+              <p className="text-sm text-slate-400 mb-4">Currently studying Computer Engineering at University of Indonesia</p>
+
+              {/* Employment Status */}
+              <Badge variant="secondary" className="w-fit mb-4 bg-blue-900/50 text-blue-200 border-blue-800/50 flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                Open to Work
+              </Badge>
+              <p className="text-sm md:text-base font-medium mb-4 text-slate-100 leading-relaxed">Passionate cybersecurity enthusiast with <span className="text-red-400">Advanced</span> knowledge in <span className="text-blue-400">Network</span> security, <span className="text-red-400">Digital</span> forensics, and <span className="text-blue-400">Reverse</span> engineering. <span className="text-red-400">Experienced</span> in <span className="text-blue-400">Advanced</span> persistent threat analysis and <span className="text-red-400">Security</span> operations. <span className="text-blue-400">Seeking</span> opportunities to <span className="text-red-400">Apply</span> my <span className="text-blue-400">Machine</span> learning expertise in <span className="text-red-400">Unified</span> threat detection and <span className="text-blue-400">Enhanced</span> cybersecurity <span className="text-red-400">Learning</span> systems.</p>
+            </div>
+          </div>
+
+          <div className="mt-auto pt-4">
+            <div className="flex items-center gap-2 text-sm text-slate-400 justify-center md:justify-start mb-2">
+              <MapPin className="w-4 h-4" />
+              <span>Based in Jakarta, IDN</span>
+            </div>
+
+            <div className="flex items-center gap-2 text-sm text-slate-400 justify-center md:justify-start">
+              <Clock className="w-4 h-4" />
+              <span>GMT+7 (WIB)</span>
+            </div>
+          </div>
+        </div>
+      </Card>
+
+      {/* Certifications & Education Tile */}
+      <Card 
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-950/60 to-blue-900/60 border-blue-800/50 tile-hover"
+        onClick={() => router.push('/certs')}
+      >
+        <div className="flex flex-col h-full">
+          <div className="flex items-center gap-2 mb-3">
+            <GraduationCap className="w-5 h-5 text-blue-400" />
+            <h3 className="font-semibold text-sm md:text-base text-blue-100">Certifications</h3>
+          </div>
+          <div className="flex-1 flex flex-col justify-center">
+            <p className="text-xs md:text-sm text-blue-300 mb-1">15 Professional Certifications</p>
+            <p className="text-xs text-blue-400">MongoDB • CCNA • IBM • Cybersecurity</p>
+          </div>
+        </div>
+      </Card>
+
+      {/* Projects Tile */}
+      <Card 
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-950/60 to-red-900/60 border-red-800/50 tile-hover"
+        onClick={() => router.push('/projects')}
+      >
+        <div className="flex flex-col h-full">
+          <div className="flex items-center gap-2 mb-3">
+            <FolderOpen className="w-5 h-5 text-red-400" />
+            <h3 className="font-semibold text-sm md:text-base text-red-100">Projects</h3>
+          </div>
+          <div className="flex-1 flex flex-col justify-center">
+            <p className="text-xs md:text-sm text-red-300">AI/ML • Embedded • Security</p>
+          </div>
+        </div>
+      </Card>
+
+      {/* Tools Tile */}
+      <Card 
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-slate-800/60 to-slate-700/60 border-slate-600/50 tile-hover"
+        onClick={() => router.push('/tools')}
+      >
+        <div className="flex flex-col h-full">
+          <div className="flex items-center gap-2 mb-3">
+            <Wrench className="w-5 h-5 text-slate-400" />
+            <h3 className="font-semibold text-sm md:text-base text-slate-100">Tools</h3>
+          </div>
+          <div className="flex-1 flex flex-col justify-center">
+            <p className="text-xs md:text-sm text-slate-300">Utilities & Scripts</p>
+          </div>
+        </div>
+      </Card>
+
+      {/* CVE/CTF Writeups Tile */}
+      <Card 
+        className="col-span-6 md:col-span-4 lg:col-span-4 row-span-2 md:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-900/60 to-red-950/60 border-red-700/50 tile-hover"
+        onClick={() => router.push('/writeups')}
+      >
+        <div className="flex flex-col h-full">
+          <div className="flex items-center gap-2 mb-3">
+            <Shield className="w-5 h-5 text-red-400" />
+            <h3 className="font-semibold text-sm md:text-base text-red-100">CVE/CTF Writeups</h3>
+          </div>
+          <div className="flex-1 flex flex-col justify-center">
+            <p className="text-xs md:text-sm text-red-300 mb-2">Latest: CVE-2024-XXXX</p>
+            <p className="text-xs text-red-400">Buffer overflow in...</p>
+          </div>
+        </div>
+      </Card>
+
+      {/* Personal Documentation/Blog Tile */}
+      <Card 
+        className="col-span-12 md:col-span-5 lg:col-span-5 row-span-2 md:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-900/60 to-blue-950/60 border-blue-700/50 tile-hover"
+        onClick={() => router.push('/thoughts')}
+      >
+        <div className="flex flex-col h-full">
+          <div className="flex items-center gap-2 mb-3">
+            <FileText className="w-5 h-5 text-blue-400" />
+            <h3 className="font-semibold text-sm md:text-base text-blue-100">Letters & Thoughts</h3>
+          </div>
+          <div className="flex-1 flex flex-col justify-center">
+            <p className="text-xs md:text-sm text-blue-300 mb-2">Latest: &ldquo;Journey into Quantum Computing&rdquo;</p>
+            <p className="text-xs text-blue-400">Exploring the intersection of quantum mechanics and computational possibilities...</p>
+          </div>
+        </div>
+      </Card>
+
+      {/* Social Media Tiles */}
+      <SocialTile icon={Github} platform="GitHub" url="https://github.com/sammtan" />
+      <SocialTile icon={Linkedin} platform="LinkedIn" url="https://linkedin.com/in/sammtan" />
+      <SocialTile icon={Instagram} platform="Instagram" url="https://instagram.com/samm.tan" />
+      <SocialTile icon={Twitter} platform="X (Twitter)" url="https://x.com/sxmmtan" />
+      <SocialTile icon={Mail} platform="Email" url="mailto:sammtan.rt@gmail.com" />
+      <SocialTile icon={Youtube} platform="YouTube" url="https://www.youtube.com/@sammtanX?sub_confirmation=1" />
+
+      {/* Tech Stack Tile */}
+      <Card className="col-start-3 col-end-11 md:col-start-3 md:col-end-11 lg:col-start-3 lg:col-end-11 row-span-2 p-4 bg-gradient-to-br from-purple-950/60 to-purple-900/60 border-purple-800/50 tile-hover overflow-hidden">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center gap-2 mb-4">
+            <Code2 className="w-5 h-5 text-purple-400" />
+            <h3 className="font-semibold text-sm md:text-base text-purple-100">Tech Stack & Tools</h3>
+          </div>
+          
+          {/* Horizontal scrollable container */}
+          <div className="flex-1 overflow-hidden">
+            <div className="flex gap-3 overflow-x-auto pb-2 tech-stack-scroll smooth-scroll">
+              
+              {/* Programming Languages */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[140px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Code2 className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">Languages</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">C/C++</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">C#</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Python</span>
+                </div>
+              </div>
+
+              {/* Embedded Systems */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[140px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Cpu className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">Embedded</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">ESP32</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Arduino</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">STM32</span>
+                </div>
+              </div>
+
+              {/* Security Tools */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[160px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Shield className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">Security</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Metasploit</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Wireshark</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Burp Suite</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Nmap</span>
+                </div>
+              </div>
+
+              {/* Penetration Testing */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[160px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Bug className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">Pen Testing</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Kali Linux</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Ghidra</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">John</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Hashcat</span>
+                </div>
+              </div>
+
+              {/* Cryptography */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[140px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Key className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">Crypto</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">OpenSSL</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">GnuPG</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">CrypTool</span>
+                </div>
+              </div>
+
+              {/* AI/ML */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[150px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Brain className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">AI/ML</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">TensorFlow</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">PyTorch</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Jupyter</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">NumPy</span>
+                </div>
+              </div>
+
+              {/* GPGPU */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[120px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Zap className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">GPGPU</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">CUDA</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">OpenCL</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">cuDNN</span>
+                </div>
+              </div>
+
+              {/* Operating Systems */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[140px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Terminal className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">Systems</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Linux</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Windows</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Docker</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </Card>
+    </div>
   );
 }
