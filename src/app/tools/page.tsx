@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Download, Terminal, Code, Shield, Network, Database } from "lucide-react";
+import { Download, Terminal, Code, Shield, Network, Database, Github, ExternalLink, Clock } from "lucide-react";
 
 export default function ToolsPage() {
   const toolCategories = [
@@ -13,21 +13,25 @@ export default function ToolsPage() {
           description: "Advanced network port scanning with stealth capabilities",
           language: "Python",
           size: "2.3 MB",
-          downloads: 1247
+          downloads: 0,
+          status: "coming_soon"
         },
         {
           name: "Hash Cracker",
           description: "Multi-algorithm hash cracking utility with dictionary support",
           language: "C++",
           size: "5.1 MB", 
-          downloads: 892
+          downloads: 0,
+          status: "coming_soon"
         },
         {
           name: "SSL Analyzer",
-          description: "Certificate validation and SSL/TLS security assessment tool",
+          description: "Comprehensive SSL/TLS certificate analysis with web interface and vulnerability detection",
           language: "Python",
-          size: "1.8 MB",
-          downloads: 634
+          size: "2.1 MB",
+          downloads: 0,
+          status: "available",
+          github: "https://github.com/sammtan/ssl-analyzer",
         }
       ]
     },
@@ -40,14 +44,16 @@ export default function ToolsPage() {
           description: "Real-time network traffic analysis and monitoring",
           language: "Python", 
           size: "3.2 MB",
-          downloads: 756
+          downloads: 0,
+          status: "coming_soon"
         },
         {
           name: "DNS Resolver",
           description: "Advanced DNS lookup tool with recursive resolution",
           language: "Go",
           size: "4.5 MB",
-          downloads: 423
+          downloads: 0,
+          status: "coming_soon"
         }
       ]
     },
@@ -60,14 +66,16 @@ export default function ToolsPage() {
           description: "Intelligent log file analysis and pattern recognition",
           language: "Python",
           size: "2.7 MB",
-          downloads: 1089
+          downloads: 0,
+          status: "coming_soon"
         },
         {
           name: "Forensics Extractor",
           description: "Digital evidence extraction and metadata analysis",
           language: "Python",
           size: "6.3 MB",
-          downloads: 445
+          downloads: 0,
+          status: "coming_soon"
         }
       ]
     }
@@ -115,12 +123,23 @@ export default function ToolsPage() {
                       {/* Description */}
                       <p className="text-slate-300 text-sm mb-4 leading-relaxed">{tool.description}</p>
 
-                      {/* Language Badge */}
-                      <div className="mb-4">
+                      {/* Language Badge and Status */}
+                      <div className="flex items-center justify-between mb-4">
                         <Badge className={`text-xs ${getLanguageColor(tool.language)}`}>
                           <Code className="w-3 h-3 mr-1" />
                           {tool.language}
                         </Badge>
+                        {tool.status === "available" && (
+                          <Badge className="text-xs bg-green-500/20 text-green-300 border-green-500/30">
+                            Available
+                          </Badge>
+                        )}
+                        {tool.status === "coming_soon" && (
+                          <Badge className="text-xs bg-yellow-500/20 text-yellow-300 border-yellow-500/30">
+                            <Clock className="w-3 h-3 mr-1" />
+                            Coming Soon
+                          </Badge>
+                        )}
                       </div>
 
                       {/* Stats */}
@@ -129,11 +148,30 @@ export default function ToolsPage() {
                         <span>{tool.downloads.toLocaleString()} downloads</span>
                       </div>
 
-                      {/* Download Button */}
-                      <button className="w-full bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-md transition-colors duration-200 flex items-center justify-center gap-2">
-                        <Download className="w-4 h-4" />
-                        Download
-                      </button>
+                      {/* Action Buttons */}
+                      {tool.status === "available" ? (
+                        <div className="space-y-2">
+                          {tool.github && (
+                            <a 
+                              href={tool.github} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="w-full bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-md transition-colors duration-200 flex items-center justify-center gap-2"
+                            >
+                              <Github className="w-4 h-4" />
+                              View on GitHub
+                            </a>
+                          )}
+                        </div>
+                      ) : (
+                        <button 
+                          disabled 
+                          className="w-full bg-slate-600/50 text-slate-400 py-2 px-4 rounded-md cursor-not-allowed flex items-center justify-center gap-2"
+                        >
+                          <Clock className="w-4 h-4" />
+                          Coming Soon
+                        </button>
+                      )}
                     </div>
                   </Card>
                 ))}
