@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Download, Terminal, Code, Shield, Network, Database, Github, ExternalLink, Clock } from "lucide-react";
+import { Terminal, Code, Shield, Network, Database, Github, Clock } from "lucide-react";
 
 export default function ToolsPage() {
   const toolCategories = [
@@ -18,10 +18,11 @@ export default function ToolsPage() {
         },
         {
           name: "Hash Cracker",
-          description: "Multi-algorithm hash cracking utility with dictionary support and GPU acceleration",
+          description: "Advanced multi-algorithm hash cracking with MD5/SHA1/SHA256/SHA512 support, dictionary attacks, brute force, and multi-threading",
           language: "C++",
-          size: "5.1 MB", 
-          status: "coming_soon"
+          size: "245 KB", 
+          status: "available",
+          github: "https://github.com/sammtan/hash-cracker",
         },
         {
           name: "SSL Analyzer",
@@ -64,14 +65,16 @@ export default function ToolsPage() {
           description: "Intelligent log analysis with pattern recognition, anomaly detection, and statistical reporting",
           language: "Python",
           size: "2.7 MB",
-          status: "coming_soon"
+          status: "coming_soon",
+          github: ""
         },
         {
           name: "Forensics Extractor",
           description: "Digital evidence extraction with metadata analysis, file recovery, and forensic reporting",
           language: "Python",
           size: "6.3 MB",
-          status: "coming_soon"
+          status: "coming_soon",
+          github: ""
         }
       ]
     }
@@ -147,7 +150,7 @@ export default function ToolsPage() {
                       {/* Action Buttons */}
                       {tool.status === "available" ? (
                         <div className="space-y-2">
-                          {tool.github && (
+                          {tool.github && tool.github.trim() !== "" && (
                             <a 
                               href={tool.github} 
                               target="_blank" 

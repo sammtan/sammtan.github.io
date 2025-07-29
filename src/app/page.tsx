@@ -9,7 +9,6 @@ import { toast } from "sonner";
 import {
   GraduationCap,
   FolderOpen,
-  Wrench,
   Shield,
   FileText,
   MapPin,
@@ -96,11 +95,11 @@ export default function Home() {
     // Show development toast after a short delay
     const timer = setTimeout(() => {
       toast.info("🚧 Under Development", {
-        description: "This portfolio website is still in active development. Some features may not be fully functional yet.",
+        description: "This portfolio website is still in active development. Some features may not be available yet. Best experience in desktop platform.",
         duration: 6000,
         action: {
           label: "Got it",
-          onClick: () => {},
+          onClick: () => { },
         },
       });
     }, 1500);
@@ -175,7 +174,7 @@ export default function Home() {
       </Card>
 
       {/* Certifications & Education Tile */}
-      <Card 
+      <Card
         className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-950/60 to-blue-900/60 border-blue-800/50 tile-hover"
         onClick={() => router.push('/certs')}
       >
@@ -192,7 +191,7 @@ export default function Home() {
       </Card>
 
       {/* Projects Tile */}
-      <Card 
+      <Card
         className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-950/60 to-red-900/60 border-red-800/50 tile-hover"
         onClick={() => router.push('/projects')}
       >
@@ -208,23 +207,63 @@ export default function Home() {
       </Card>
 
       {/* Tools Tile */}
-      <Card 
-        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-slate-800/60 to-slate-700/60 border-slate-600/50 tile-hover"
+      <Card
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-emerald-950/70 to-teal-900/70 border-emerald-800/60 tile-hover relative overflow-hidden"
         onClick={() => router.push('/tools')}
       >
-        <div className="flex flex-col h-full">
+        {/* Animated Circuit Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <svg viewBox="0 0 200 120" className="w-full h-full">
+            <defs>
+              <pattern id="circuit" patternUnits="userSpaceOnUse" width="40" height="40">
+                <path d="M0 20h40M20 0v40M10 10h20M10 30h20" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-emerald-400" />
+                <circle cx="20" cy="20" r="2" fill="currentColor" className="text-emerald-400" />
+                <circle cx="10" cy="10" r="1" fill="currentColor" className="text-emerald-400" />
+                <circle cx="30" cy="30" r="1" fill="currentColor" className="text-emerald-400" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#circuit)" />
+          </svg>
+        </div>
+
+        <div className="flex flex-col h-full relative z-10">
           <div className="flex items-center gap-2 mb-3">
-            <Wrench className="w-5 h-5 text-slate-400" />
-            <h3 className="font-semibold text-sm md:text-base text-slate-100">Tools</h3>
+            <div className="relative">
+              <Shield className="w-5 h-5 text-emerald-400" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            </div>
+            <h3 className="font-semibold text-sm md:text-base text-emerald-100">Security Arsenal</h3>
           </div>
-          <div className="flex-1 flex flex-col justify-center">
-            <p className="text-xs md:text-sm text-slate-300">Utilities & Scripts</p>
+
+          <div className="flex-1 flex flex-col justify-center space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-xs md:text-sm text-emerald-300 font-medium">5/7 Tools Active</span>
+              <div className="flex gap-1">
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-100"></div>
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-200"></div>
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-300"></div>
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-500"></div>
+                <div className="w-1.5 h-1.5 bg-slate-500 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-slate-500 rounded-full"></div>
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <p className="text-xs text-emerald-400">SSL • Port • DNS • Packet • Hash</p>
+              <p className="text-xs text-slate-400">Log • Forensics • Coming Soon</p>
+            </div>
+
+            <div className="flex items-center gap-1 mt-1">
+              <Code2 className="w-3 h-3 text-emerald-500" />
+              <span className="text-xs text-emerald-500 font-mono">Multi-Lang Platform</span>
+            </div>
           </div>
         </div>
       </Card>
 
       {/* CVE/CTF Writeups Tile */}
-      <Card 
+      <Card
         className="col-span-6 md:col-span-4 lg:col-span-4 row-span-2 md:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-900/60 to-red-950/60 border-red-700/50 tile-hover"
         onClick={() => router.push('/writeups')}
       >
@@ -241,7 +280,7 @@ export default function Home() {
       </Card>
 
       {/* Personal Documentation/Blog Tile */}
-      <Card 
+      <Card
         className="col-span-12 md:col-span-5 lg:col-span-5 row-span-2 md:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-900/60 to-blue-950/60 border-blue-700/50 tile-hover"
         onClick={() => router.push('/thoughts')}
       >
@@ -272,11 +311,11 @@ export default function Home() {
             <Code2 className="w-5 h-5 text-purple-400" />
             <h3 className="font-semibold text-sm md:text-base text-purple-100">Tech Stack & Tools</h3>
           </div>
-          
+
           {/* Horizontal scrollable container */}
           <div className="flex-1 overflow-hidden">
             <div className="flex gap-3 overflow-x-auto pb-2 tech-stack-scroll smooth-scroll">
-              
+
               {/* Programming Languages */}
               <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[140px] tech-stack-item">
                 <div className="flex items-center gap-2 mb-2">
