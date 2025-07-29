@@ -10,27 +10,24 @@ export default function ToolsPage() {
       tools: [
         {
           name: "Port Scanner",
-          description: "Advanced network port scanning with stealth capabilities, service detection, and web interface",
+          description: "Advanced TCP/UDP port scanning with stealth detection, service fingerprinting, and web interface",
           language: "Python",
-          size: "2.3 MB",
-          downloads: 0,
+          size: "131 KB",
           status: "available",
           github: "https://github.com/sammtan/port-scanner",
         },
         {
           name: "Hash Cracker",
-          description: "Multi-algorithm hash cracking utility with dictionary support",
+          description: "Multi-algorithm hash cracking utility with dictionary support and GPU acceleration",
           language: "C++",
           size: "5.1 MB", 
-          downloads: 0,
           status: "coming_soon"
         },
         {
           name: "SSL Analyzer",
-          description: "Comprehensive SSL/TLS certificate analysis with web interface and vulnerability detection",
+          description: "Comprehensive SSL/TLS certificate analysis with vulnerability detection and compliance checking",
           language: "Python",
-          size: "2.1 MB",
-          downloads: 0,
+          size: "143 KB",
           status: "available",
           github: "https://github.com/sammtan/ssl-analyzer",
         }
@@ -42,18 +39,17 @@ export default function ToolsPage() {
       tools: [
         {
           name: "Packet Sniffer",
-          description: "Real-time network traffic analysis and monitoring",
+          description: "Real-time Wi-Fi traffic analysis with deep packet inspection, protocol parsing, and live statistics",
           language: "Python", 
-          size: "3.2 MB",
-          downloads: 0,
-          status: "coming_soon"
+          size: "115 KB",
+          status: "available",
+          github: "https://github.com/sammtan/packet-sniffer",
         },
         {
           name: "DNS Resolver",
-          description: "Advanced DNS analysis with bulk processing, reverse DNS, and server performance testing",
+          description: "Advanced DNS intelligence with bulk processing, reverse lookups, and server performance analysis",
           language: "Go",
-          size: "4.5 MB",
-          downloads: 0,
+          size: "11.2 MB",
           status: "available",
           github: "https://github.com/sammtan/dns-resolver",
         }
@@ -65,18 +61,16 @@ export default function ToolsPage() {
       tools: [
         {
           name: "Log Parser",
-          description: "Intelligent log file analysis and pattern recognition",
+          description: "Intelligent log analysis with pattern recognition, anomaly detection, and statistical reporting",
           language: "Python",
           size: "2.7 MB",
-          downloads: 0,
           status: "coming_soon"
         },
         {
           name: "Forensics Extractor",
-          description: "Digital evidence extraction and metadata analysis",
+          description: "Digital evidence extraction with metadata analysis, file recovery, and forensic reporting",
           language: "Python",
           size: "6.3 MB",
-          downloads: 0,
           status: "coming_soon"
         }
       ]
@@ -97,8 +91,8 @@ export default function ToolsPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4">Tools & Utilities</h1>
-          <p className="text-slate-300 text-lg">Collection of custom-built security tools, network utilities, and automation scripts.</p>
+          <h1 className="text-4xl font-bold text-white mb-4">Security Tools & Network Utilities</h1>
+          <p className="text-slate-300 text-lg">Professional cybersecurity toolkit with integrated workflow capabilities for comprehensive network analysis and security assessment.</p>
         </div>
 
         {/* Tools by Category */}
@@ -147,7 +141,7 @@ export default function ToolsPage() {
                       {/* Stats */}
                       <div className="flex items-center justify-between text-sm text-slate-400 mb-4">
                         <span>{tool.size}</span>
-                        <span>{tool.downloads.toLocaleString()} downloads</span>
+                        <span>{tool.language}</span>
                       </div>
 
                       {/* Action Buttons */}
@@ -186,8 +180,13 @@ export default function ToolsPage() {
         <div className="mt-12">
           <Card className="bg-slate-800/30 border-slate-700 border-dashed">
             <div className="p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">📋 Usage Note</h3>
-              <p className="text-slate-400 text-sm">All tools are provided for educational and authorized security testing purposes only. Please ensure you have proper authorization before using these tools on any systems.</p>
+              <h3 className="text-lg font-semibold text-white mb-2">🔗 Integration & Usage</h3>
+              <p className="text-slate-400 text-sm mb-3">
+                These tools are designed to work together as an integrated cybersecurity platform. For example, use the DNS Resolver to discover infrastructure, then monitor actual traffic patterns with the Packet Sniffer for comprehensive network intelligence.
+              </p>
+              <p className="text-slate-400 text-sm">
+                <strong>⚠️ Educational Use Only:</strong> All tools are provided for educational and authorized security testing purposes only. Please ensure you have proper authorization before using these tools on any systems.
+              </p>
             </div>
           </Card>
         </div>
