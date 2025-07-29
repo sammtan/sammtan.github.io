@@ -237,21 +237,21 @@ export default function Home() {
 
           <div className="flex-1 flex flex-col justify-center space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs md:text-sm text-emerald-300 font-medium">5/7 Tools Active</span>
+              <span className="text-xs md:text-sm text-emerald-300 font-medium">7/7 Tools Active</span>
               <div className="flex gap-1">
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-100"></div>
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-200"></div>
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-300"></div>
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-400"></div>
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-500"></div>
-                <div className="w-1.5 h-1.5 bg-slate-500 rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-slate-500 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-600"></div>
               </div>
             </div>
 
             <div className="space-y-1">
-              <p className="text-xs text-emerald-400">SSL • Port • DNS • Packet • Hash</p>
-              <p className="text-xs text-slate-400">Log • Forensics • Coming Soon</p>
+              <p className="text-xs text-emerald-400">SSL • Port • DNS • Packet • Hash • Forensics • Logs</p>
+              <p className="text-xs text-slate-400">Complete Security Toolkit</p>
             </div>
 
             <div className="flex items-center gap-1 mt-1">

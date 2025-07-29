@@ -10,17 +10,20 @@ const jbMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Samuel Tan's Portfolio",
-  description: "Take a look!",
+  title: "samm.tan",
+  description: "sam's obvious personal website",
 };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="samm.tan" />
+      </head>
       <body className={`${jbMono.className} antialiased select-none`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem enableColorScheme>
           {children}
-          <Toaster 
+          <Toaster
             theme="dark"
             position="bottom-right"
             richColors

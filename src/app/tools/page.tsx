@@ -65,16 +65,16 @@ export default function ToolsPage() {
           description: "Intelligent log analysis with pattern recognition, anomaly detection, and statistical reporting",
           language: "Python",
           size: "2.7 MB",
-          status: "coming_soon",
-          github: ""
+          status: "available",
+          github: "https://github.com/sammtan/log-parser"
         },
         {
           name: "Forensics Extractor",
-          description: "Digital evidence extraction with metadata analysis, file recovery, and forensic reporting",
+          description: "Digital evidence extraction with metadata analysis, file carving, hash verification, and comprehensive forensic reporting",
           language: "Python",
-          size: "6.3 MB",
-          status: "coming_soon",
-          github: ""
+          size: "850 KB",
+          status: "available",
+          github: "https://github.com/sammtan/forensics-extractor",
         }
       ]
     }
