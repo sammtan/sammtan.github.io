@@ -9,12 +9,13 @@ export default function ToolsPage() {
       icon: Shield,
       tools: [
         {
-          name: "Port Scanner Pro",
-          description: "Advanced network port scanning with stealth capabilities",
+          name: "Port Scanner",
+          description: "Advanced network port scanning with stealth capabilities, service detection, and web interface",
           language: "Python",
           size: "2.3 MB",
           downloads: 0,
-          status: "coming_soon"
+          status: "available",
+          github: "https://github.com/sammtan/port-scanner",
         },
         {
           name: "Hash Cracker",
@@ -49,11 +50,12 @@ export default function ToolsPage() {
         },
         {
           name: "DNS Resolver",
-          description: "Advanced DNS lookup tool with recursive resolution",
+          description: "Advanced DNS analysis with bulk processing, reverse DNS, and server performance testing",
           language: "Go",
           size: "4.5 MB",
           downloads: 0,
-          status: "coming_soon"
+          status: "available",
+          github: "https://github.com/sammtan/dns-resolver",
         }
       ]
     },
