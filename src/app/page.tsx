@@ -201,8 +201,8 @@ export default function Home() {
             <h3 className="font-semibold text-sm md:text-base text-red-100">Projects</h3>
           </div>
           <div className="flex-1 flex flex-col justify-center">
-            <p className="text-xs md:text-sm text-red-300 mb-1">CyberTools Complete ✅</p>
-            <p className="text-xs text-red-400">AI/ML • Embedded • Security</p>
+            <p className="text-xs md:text-sm text-red-300 mb-1">Personal Portfolio & Tools</p>
+            <p className="text-xs text-red-400">Web Dev • Cybersecurity • Innovation</p>
           </div>
         </div>
       </Card>

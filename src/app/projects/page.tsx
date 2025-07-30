@@ -7,36 +7,47 @@ import { Github, ExternalLink, Star, Activity } from "lucide-react";
 export default function ProjectsPage() {
   const projects = [
     {
-      title: "CyberTools - Security Analysis Suite",
-      description: "📦 Published on GitHub - Comprehensive cybersecurity analysis platform integrating 7 professional security tools (SSL Analyzer, Port Scanner, DNS Resolver, Packet Sniffer, Hash Cracker, Forensics Extractor, Log Parser) with both CLI and GUI interfaces. Features cross-platform CMake build system, directory-agnostic tool detection, Qt6 professional interface, and real-time execution monitoring.",
-      tech: ["C++17", "Qt6", "Python", "Go", "CMake", "Windows API"],
+      title: "Portfolio Website",
+      description: "Modern personal portfolio website built with Next.js and TypeScript, featuring responsive design, dynamic project showcase, certificate gallery, and professional presentation of skills and experience.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Shadcn/ui"],
       status: "Completed",
       stars: 0,
-      github: "https://github.com/sammtan/cybersuite-security-tools",
-      demo: "/tools",
-      phase: "Level 1",
+      github: "https://github.com/sammtan/sammtan.github.io",
+      demo: "https://sammtan.github.io",
+      phase: "Current",
       progress: 100
     },
     {
-      title: "AI-Powered Security Scanner",
-      description: "Next-generation security platform enhanced with custom AI/ML models for intelligent threat detection, automated vulnerability analysis, and real-time decision making across all security domains.",
-      tech: ["Python", "TensorFlow", "PyTorch", "CUDA", "FastAPI", "PostgreSQL"],
-      status: "Planning",
+      title: "Banking Security Assessment Platform",
+      description: "Enterprise-grade financial security platform with real-time fraud detection, transaction monitoring, and ML-based risk assessment. Features SWIFT/ISO 20022 compliance checking, payment gateway security scanning, and comprehensive security dashboards for banking operations.",
+      tech: ["Python", "Django", "PostgreSQL", "TensorFlow", "Docker", "Redis"],
+      status: "In Progress",
       stars: 0,
       github: "#",
       demo: null,
-      phase: "Level 2",
-      progress: 0
+      phase: "Priority",
+      progress: 15
     },
     {
-      title: "Embedded AI Security System",
-      description: "Real-time AI-powered security system deployed on embedded devices (ESP32, STM32) for edge computing threat detection and autonomous response in IoT environments.",
-      tech: ["C++", "TensorFlow Lite", "ESP32", "STM32", "CUDA", "Edge AI"],
+      title: "Enterprise Vulnerability Management System",
+      description: "Comprehensive vulnerability assessment and management platform with automated CVE scanning, risk prioritization engine, and compliance reporting. Integrates with existing security tools and provides executive-level dashboards for enterprise security operations.",
+      tech: ["Python", "React", "MongoDB", "Celery", "Docker", "Elasticsearch"],
       status: "Planned",
       stars: 0,
       github: "#",
       demo: null,
-      phase: "Level 3",
+      phase: "Upcoming",
+      progress: 5
+    },
+    {
+      title: "AI-Powered Threat Detection System",
+      description: "Advanced threat detection platform using machine learning for network traffic anomaly detection, malware classification, and zero-day threat identification. Features SIEM integration, automated incident response, and threat intelligence correlation capabilities.",
+      tech: ["Python", "TensorFlow", "Elasticsearch", "Kibana", "Docker", "Apache Kafka"],
+      status: "Planned",
+      stars: 0,
+      github: "#",
+      demo: null,
+      phase: "Future",
       progress: 0
     }
   ];
@@ -47,11 +58,12 @@ export default function ProjectsPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-4">Projects</h1>
-          <p className="text-slate-300 text-lg">Progressive cybersecurity platform development: from unified tools to AI-powered analysis to embedded real-time systems.</p>
+          <p className="text-slate-300 text-lg">Strategic project development focused on banking security, enterprise vulnerability management, and AI-powered threat detection for cybersecurity and software engineering internship opportunities.</p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <Badge variant="outline" className="border-blue-500 text-blue-400">Level 1: Platform Unification</Badge>
-            <Badge variant="outline" className="border-purple-500 text-purple-400">Level 2: AI Integration</Badge>
-            <Badge variant="outline" className="border-green-500 text-green-400">Level 3: Embedded Deployment</Badge>
+            <Badge variant="outline" className="border-green-500 text-green-400">Current</Badge>
+            <Badge variant="outline" className="border-blue-500 text-blue-400">Priority</Badge>
+            <Badge variant="outline" className="border-yellow-500 text-yellow-400">Upcoming</Badge>
+            <Badge variant="outline" className="border-purple-500 text-purple-400">Future</Badge>
           </div>
         </div>
 
@@ -60,18 +72,20 @@ export default function ProjectsPage() {
           {projects.map((project, index) => {
             const getPhaseColor = (phase: string) => {
               switch (phase) {
-                case "Level 1": return "border-blue-500 bg-blue-950/30";
-                case "Level 2": return "border-purple-500 bg-purple-950/30";
-                case "Level 3": return "border-green-500 bg-green-950/30";
+                case "Current": return "border-green-500 bg-green-950/30";
+                case "Priority": return "border-blue-500 bg-blue-950/30";
+                case "Upcoming": return "border-yellow-500 bg-yellow-950/30";
+                case "Future": return "border-purple-500 bg-purple-950/30";
                 default: return "border-slate-700 bg-slate-800/50";
               }
             };
 
             const getProgressColor = (phase: string) => {
               switch (phase) {
-                case "Level 1": return "bg-blue-500";
-                case "Level 2": return "bg-purple-500";
-                case "Level 3": return "bg-green-500";
+                case "Current": return "bg-green-500";
+                case "Priority": return "bg-blue-500";
+                case "Upcoming": return "bg-yellow-500";
+                case "Future": return "bg-purple-500";
                 default: return "bg-slate-500";
               }
             };
@@ -82,7 +96,7 @@ export default function ProjectsPage() {
                   {/* Project Header with Phase */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <Badge variant="outline" className={`${project.phase === "Level 1" ? "border-blue-400 text-blue-400" : project.phase === "Level 2" ? "border-purple-400 text-purple-400" : "border-green-400 text-green-400"} font-mono text-xs`}>
+                      <Badge variant="outline" className={`${project.phase === "Current" ? "border-green-400 text-green-400" : project.phase === "Priority" ? "border-blue-400 text-blue-400" : project.phase === "Upcoming" ? "border-yellow-400 text-yellow-400" : "border-purple-400 text-purple-400"} font-mono text-xs`}>
                         {project.phase}
                       </Badge>
                       <h3 className="text-2xl font-bold text-white">{project.title}</h3>
@@ -154,32 +168,32 @@ export default function ProjectsPage() {
           })}
         </div>
 
-        {/* Roadmap Section */}
+        {/* Development Roadmap */}
         <div className="mt-12">
           <Card className="bg-gradient-to-r from-slate-800/30 to-slate-700/30 border-slate-600 border-dashed">
             <div className="p-8">
-              <h3 className="text-2xl font-semibold text-white mb-4 text-center">Development Roadmap</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4 text-center">Strategic Development Timeline</h3>
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div className="space-y-2">
                   <div className="w-12 h-12 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-blue-400 font-bold">1</span>
+                    <span className="text-blue-400 font-bold">Q1</span>
                   </div>
-                  <h4 className="text-blue-400 font-semibold">Platform Unification</h4>
-                  <p className="text-slate-400 text-sm">Integrate all 7 security tools into unified platform</p>
+                  <h4 className="text-blue-400 font-semibold">Banking Security Platform</h4>
+                  <p className="text-slate-400 text-sm">Target: BCA & Bank Mandiri internships</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="w-12 h-12 mx-auto bg-yellow-500/20 rounded-full flex items-center justify-center">
+                    <span className="text-yellow-400 font-bold">Q2</span>
+                  </div>
+                  <h4 className="text-yellow-400 font-semibold">Vulnerability Management</h4>
+                  <p className="text-slate-400 text-sm">Target: Enterprise security roles</p>
                 </div>
                 <div className="space-y-2">
                   <div className="w-12 h-12 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-purple-400 font-bold">2</span>
+                    <span className="text-purple-400 font-bold">Q3</span>
                   </div>
-                  <h4 className="text-purple-400 font-semibold">AI Integration</h4>
-                  <p className="text-slate-400 text-sm">Add custom AI models for intelligent analysis</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-12 h-12 mx-auto bg-green-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-green-400 font-bold">3</span>
-                  </div>
-                  <h4 className="text-green-400 font-semibold">Embedded Deployment</h4>
-                  <p className="text-slate-400 text-sm">Real-time edge AI security systems</p>
+                  <h4 className="text-purple-400 font-semibold">AI Threat Detection</h4>
+                  <p className="text-slate-400 text-sm">Target: Advanced cybersecurity positions</p>
                 </div>
               </div>
             </div>
