@@ -25,7 +25,8 @@ import {
   Bug,
   Key,
   Zap,
-  Terminal
+  Terminal,
+  Database
 } from "lucide-react";
 
 const SocialTile = ({ icon: Icon, platform, url }: { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>, platform: string, url: string }) => {
@@ -175,17 +176,146 @@ export default function Home() {
 
       {/* Certifications & Education Tile */}
       <Card
-        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-950/60 to-blue-900/60 border-blue-800/50 tile-hover"
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-950/60 to-blue-900/60 border-blue-800/50 tile-hover relative overflow-hidden"
         onClick={() => router.push('/certs')}
       >
-        <div className="flex flex-col h-full">
+        {/* Animated Background Pattern - Similar to Projects/Security Arsenal */}
+        <div className="absolute inset-0 opacity-10">
+          <svg viewBox="0 0 200 120" className="w-full h-full">
+            <defs>
+              <pattern id="cert-circuit" patternUnits="userSpaceOnUse" width="40" height="40">
+                <path d="M0 20h40M20 0v40M10 10h20M10 30h20" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-blue-400" />
+                <circle cx="20" cy="20" r="2" fill="currentColor" className="text-blue-400" />
+                <circle cx="10" cy="10" r="1" fill="currentColor" className="text-blue-400" />
+                <circle cx="30" cy="30" r="1" fill="currentColor" className="text-blue-400" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#cert-circuit)" />
+          </svg>
+        </div>
+        
+        <div className="flex flex-col h-full relative z-10">
           <div className="flex items-center gap-2 mb-3">
-            <GraduationCap className="w-5 h-5 text-blue-400" />
+            <div className="relative">
+              <GraduationCap className="w-5 h-5 text-blue-400" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            </div>
             <h3 className="font-semibold text-sm md:text-base text-blue-100">Certifications</h3>
           </div>
-          <div className="flex-1 flex flex-col justify-center">
-            <p className="text-xs md:text-sm text-blue-300 mb-1">15 Professional Certifications</p>
-            <p className="text-xs text-blue-400">MongoDB • CCNA • IBM • Cybersecurity</p>
+          
+          {/* Swipable Certification Cards */}
+          <div className="flex-1 relative overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="cert-cards-container flex gap-3 animate-slide-certs">
+                {/* Card 1 - Ethical Hacker */}
+                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs">🔒</span>
+                    <span className="text-xs font-medium text-blue-200">Ethical Hacker - Cisco</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Pentesting</span>
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Security</span>
+                  </div>
+                </div>
+                
+                {/* Card 2 - CCNA */}
+                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs">🌐</span>
+                    <span className="text-xs font-medium text-blue-200">CCNA Enterprise</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Networking</span>
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Cisco</span>
+                  </div>
+                </div>
+                
+                {/* Card 3 - MongoDB */}
+                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs">🍃</span>
+                    <span className="text-xs font-medium text-blue-200">MongoDB (7 Certs)</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Database</span>
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">NoSQL</span>
+                  </div>
+                </div>
+                
+                {/* Card 4 - IBM */}
+                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs">💎</span>
+                    <span className="text-xs font-medium text-blue-200">IBM Design Thinking</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Design</span>
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">UX</span>
+                  </div>
+                </div>
+                
+                {/* Card 5 - Workshops */}
+                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs">🛡️</span>
+                    <span className="text-xs font-medium text-blue-200">CSW Workshops (4)</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Ghidra</span>
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">WiFi</span>
+                  </div>
+                </div>
+                
+                {/* Duplicate set for seamless loop */}
+                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs">🔒</span>
+                    <span className="text-xs font-medium text-blue-200">Ethical Hacker - Cisco</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Pentesting</span>
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Security</span>
+                  </div>
+                </div>
+                
+                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs">🌐</span>
+                    <span className="text-xs font-medium text-blue-200">CCNA Enterprise</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Networking</span>
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Cisco</span>
+                  </div>
+                </div>
+                
+                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs">🍃</span>
+                    <span className="text-xs font-medium text-blue-200">MongoDB (7 Certs)</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Database</span>
+                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">NoSQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-3 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-blue-400 whitespace-nowrap">15 Professional</span>
+              <div className="flex gap-1">
+                <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+              </div>
+            </div>
+            <svg className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
         </div>
       </Card>
@@ -195,47 +325,106 @@ export default function Home() {
         className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-950/60 to-red-900/60 border-red-800/50 tile-hover relative overflow-hidden group"
         onClick={() => router.push('/projects')}
       >
-        {/* Animated Background Pattern */}
+        {/* Animated Background Pattern - Similar to Security Arsenal */}
         <div className="absolute inset-0 opacity-10">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
+          <svg viewBox="0 0 200 120" className="w-full h-full">
             <defs>
-              <pattern id="grid" patternUnits="userSpaceOnUse" width="20" height="20">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-red-400" />
+              <pattern id="project-circuit" patternUnits="userSpaceOnUse" width="40" height="40">
+                <path d="M0 20h40M20 0v40M10 10h20M10 30h20" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-red-400" />
+                <circle cx="20" cy="20" r="2" fill="currentColor" className="text-red-400" />
+                <circle cx="10" cy="10" r="1" fill="currentColor" className="text-red-400" />
+                <circle cx="30" cy="30" r="1" fill="currentColor" className="text-red-400" />
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <circle cx="80" cy="20" r="15" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-red-400 animate-pulse" />
-            <path d="M10,50 Q30,30 50,50 T90,50" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-red-400 opacity-50" />
+            <rect width="100%" height="100%" fill="url(#project-circuit)" />
           </svg>
         </div>
         
         <div className="flex flex-col h-full relative z-10">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="relative">
               <FolderOpen className="w-5 h-5 text-red-400" />
-              <h3 className="font-semibold text-sm md:text-base text-red-100">Projects</h3>
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
             </div>
-            <span className="text-xs text-red-400 bg-red-400/20 px-2 py-1 rounded-full">1 Completed</span>
+            <h3 className="font-semibold text-sm md:text-base text-red-100">Projects Portfolio</h3>
           </div>
-          <div className="flex-1 flex flex-col justify-center">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-              <p className="text-xs md:text-sm text-red-300 font-medium">Banking Security Platform</p>
-              <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-            </div>
-            <div className="flex flex-wrap gap-1">
-              <span className="text-xs bg-red-950/50 text-red-300 px-2 py-0.5 rounded">AI/ML</span>
-              <span className="text-xs bg-red-950/50 text-red-300 px-2 py-0.5 rounded">PySide6</span>
-              <span className="text-xs bg-red-950/50 text-red-300 px-2 py-0.5 rounded">SQLite</span>
+          
+          {/* Swipable Cards Container */}
+          <div className="flex-1 relative overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="project-cards-container flex gap-3 animate-slide-loop">
+                {/* Card 1 - NetGuard ML */}
+                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs font-medium text-red-200">NetGuard ML</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">AI/ML</span>
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
+                  </div>
+                </div>
+                
+                {/* Card 2 - Banking Security */}
+                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs font-medium text-red-200">Banking Security</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Python</span>
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">SQLite</span>
+                  </div>
+                </div>
+                
+                {/* Card 3 - Portfolio Site */}
+                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs font-medium text-red-200">Portfolio Website</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Next.js</span>
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">React</span>
+                  </div>
+                </div>
+                
+                {/* Duplicate set for seamless loop */}
+                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs font-medium text-red-200">NetGuard ML</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">AI/ML</span>
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
+                  </div>
+                </div>
+                
+                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs font-medium text-red-200">Banking Security</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Python</span>
+                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">SQLite</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          
           <div className="mt-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="text-xs text-red-400">100% Complete</div>
+              <span className="text-xs text-red-400 whitespace-nowrap">3 Completed</span>
+              <div className="flex gap-1">
+                <div className="w-1 h-1 bg-emerald-400 rounded-full"></div>
+                <div className="w-1 h-1 bg-emerald-400 rounded-full"></div>
+                <div className="w-1 h-1 bg-emerald-400 rounded-full"></div>
+              </div>
             </div>
-            <svg className="w-4 h-4 text-red-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-red-400 group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
             </svg>
           </div>
@@ -273,8 +462,8 @@ export default function Home() {
 
           <div className="flex-1 flex flex-col justify-center space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs md:text-sm text-emerald-300 font-medium">7/7 Tools Active</span>
-              <div className="flex gap-1">
+              <span className="text-xs md:text-sm text-emerald-300 font-medium whitespace-nowrap">7/7 Tools Active</span>
+              <div className="flex gap-1 flex-shrink-0">
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-100"></div>
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-200"></div>
@@ -359,9 +548,11 @@ export default function Home() {
                   <div className="text-xs font-semibold text-purple-300">Languages</div>
                 </div>
                 <div className="flex flex-wrap gap-1">
-                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">C/C++</span>
-                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">C#</span>
                   <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Python</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">C++</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Go</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">TypeScript</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">JavaScript</span>
                 </div>
               </div>
 
@@ -420,16 +611,17 @@ export default function Home() {
               </div>
 
               {/* AI/ML */}
-              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[150px] tech-stack-item">
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[180px] tech-stack-item">
                 <div className="flex items-center gap-2 mb-2">
                   <Brain className="w-4 h-4 text-purple-400" />
                   <div className="text-xs font-semibold text-purple-300">AI/ML</div>
                 </div>
                 <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">scikit-learn</span>
                   <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">TensorFlow</span>
                   <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">PyTorch</span>
-                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Jupyter</span>
-                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">NumPy</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">pandas</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Matplotlib</span>
                 </div>
               </div>
 
@@ -446,16 +638,32 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Operating Systems */}
-              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[140px] tech-stack-item">
+              {/* Frameworks & Tools */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[160px] tech-stack-item">
                 <div className="flex items-center gap-2 mb-2">
                   <Terminal className="w-4 h-4 text-purple-400" />
-                  <div className="text-xs font-semibold text-purple-300">Systems</div>
+                  <div className="text-xs font-semibold text-purple-300">Frameworks</div>
                 </div>
                 <div className="flex flex-wrap gap-1">
-                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Linux</span>
-                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Windows</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Next.js</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">React</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">PySide6</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Tailwind</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">SQLite</span>
+                </div>
+              </div>
+
+              {/* Databases & Cloud */}
+              <div className="flex-shrink-0 bg-purple-900/30 rounded-lg p-3 min-w-[150px] tech-stack-item">
+                <div className="flex items-center gap-2 mb-2">
+                  <Database className="w-4 h-4 text-purple-400" />
+                  <div className="text-xs font-semibold text-purple-300">Data & Cloud</div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">MongoDB</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">SQLite</span>
                   <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Docker</span>
+                  <span className="bg-purple-800/50 text-purple-200 text-xs px-2 py-1 rounded-full">Linux</span>
                 </div>
               </div>
 

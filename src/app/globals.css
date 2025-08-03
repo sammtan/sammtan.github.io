@@ -315,4 +315,80 @@
   .toast-custom [data-close-button]:hover {
     background: rgba(71, 85, 105, 0.5) !important;
   }
+
+  /* Project Cards Animation */
+  @keyframes slide-loop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 12px));
+    }
+  }
+
+  .animate-slide-loop {
+    animation: slide-loop 30s linear infinite;
+  }
+
+  .animate-slide-loop:hover {
+    animation-play-state: paused;
+  }
+
+  .project-card {
+    transition: all 300ms ease;
+  }
+
+  .project-card:hover {
+    transform: scale(1.05);
+    background: rgba(127, 29, 29, 0.3);
+    border-color: rgba(185, 28, 28, 0.5);
+  }
+
+  /* Certification Cards Animation */
+  @keyframes slide-certs {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 12px));
+    }
+  }
+
+  .animate-slide-certs {
+    animation: slide-certs 35s linear infinite;
+  }
+
+  .animate-slide-certs:hover {
+    animation-play-state: paused;
+  }
+
+  .cert-card {
+    transition: all 300ms ease;
+  }
+
+  .cert-card:hover {
+    transform: scale(1.05);
+    background: rgba(29, 78, 216, 0.3);
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  /* Animation delays */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+  .delay-600 {
+    animation-delay: 600ms;
+  }
 }

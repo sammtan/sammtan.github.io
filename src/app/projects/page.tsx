@@ -29,15 +29,15 @@ export default function ProjectsPage() {
       progress: 100
     },
     {
-      title: "Enterprise Vulnerability Management System",
-      description: "Comprehensive vulnerability assessment and management platform with automated CVE scanning, risk prioritization engine, and compliance reporting. Integrates with existing security tools and provides executive-level dashboards for enterprise security operations.",
-      tech: ["Python", "React", "MongoDB", "Celery", "Docker", "Elasticsearch"],
-      status: "Planned",
+      title: "NetGuard ML",
+      description: "AI-powered network security simulator combining visual network building with machine learning-based threat detection. Features ensemble ML models (Isolation Forest, LSTM, Random Forest, DBSCAN), real-time anomaly detection, comprehensive PDF reporting, and pre-built attack scenarios. Successfully simulates corporate breaches, IoT botnets, and APT attacks with detailed analysis.",
+      tech: ["Python", "PySide6", "scikit-learn", "Matplotlib", "ReportLab", "NetworkX"],
+      status: "Completed",
       stars: 0,
-      github: "#",
+      github: "https://github.com/sammtan/netguard-ml",
       demo: null,
-      phase: "Upcoming",
-      progress: 5
+      phase: "Completed",
+      progress: 100
     },
     {
       title: "AI-Powered Threat Detection System",
