@@ -18,15 +18,15 @@ export default function ProjectsPage() {
       progress: 100
     },
     {
-      title: "Banking Security Assessment Platform",
-      description: "Enterprise-grade financial security platform with real-time fraud detection, transaction monitoring, and ML-based risk assessment. Features SWIFT/ISO 20022 compliance checking, payment gateway security scanning, and comprehensive security dashboards for banking operations.",
-      tech: ["Python", "Django", "PostgreSQL", "TensorFlow", "Docker", "Redis"],
-      status: "In Progress",
+      title: "Banking Security Platform",
+      description: "Comprehensive desktop application for real-time banking fraud detection with AI-powered risk assessment using Isolation Forest algorithm. Features transaction monitoring with pagination, customizable fraud detection rules, multi-format reporting (PDF/CSV/Excel), and real-time data visualization charts.",
+      tech: ["Python", "PySide6", "SQLite", "scikit-learn", "ReportLab", "pandas"],
+      status: "Completed",
       stars: 0,
-      github: "#",
+      github: "https://github.com/sammtan/banking-security-platform",
       demo: null,
-      phase: "Priority",
-      progress: 15
+      phase: "Completed",
+      progress: 100
     },
     {
       title: "Enterprise Vulnerability Management System",
@@ -61,6 +61,7 @@ export default function ProjectsPage() {
           <p className="text-slate-300 text-lg">Strategic project development focused on banking security, enterprise vulnerability management, and AI-powered threat detection for cybersecurity and software engineering internship opportunities.</p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Badge variant="outline" className="border-green-500 text-green-400">Current</Badge>
+            <Badge variant="outline" className="border-emerald-500 text-emerald-400 bg-emerald-400/10">Completed</Badge>
             <Badge variant="outline" className="border-blue-500 text-blue-400">Priority</Badge>
             <Badge variant="outline" className="border-yellow-500 text-yellow-400">Upcoming</Badge>
             <Badge variant="outline" className="border-purple-500 text-purple-400">Future</Badge>
@@ -73,6 +74,7 @@ export default function ProjectsPage() {
             const getPhaseColor = (phase: string) => {
               switch (phase) {
                 case "Current": return "border-green-500 bg-green-950/30";
+                case "Completed": return "border-emerald-500 bg-gradient-to-br from-emerald-950/40 to-teal-950/40";
                 case "Priority": return "border-blue-500 bg-blue-950/30";
                 case "Upcoming": return "border-yellow-500 bg-yellow-950/30";
                 case "Future": return "border-purple-500 bg-purple-950/30";
@@ -83,6 +85,7 @@ export default function ProjectsPage() {
             const getProgressColor = (phase: string) => {
               switch (phase) {
                 case "Current": return "bg-green-500";
+                case "Completed": return "bg-gradient-to-r from-emerald-500 to-teal-500";
                 case "Priority": return "bg-blue-500";
                 case "Upcoming": return "bg-yellow-500";
                 case "Future": return "bg-purple-500";
@@ -96,7 +99,7 @@ export default function ProjectsPage() {
                   {/* Project Header with Phase */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <Badge variant="outline" className={`${project.phase === "Current" ? "border-green-400 text-green-400" : project.phase === "Priority" ? "border-blue-400 text-blue-400" : project.phase === "Upcoming" ? "border-yellow-400 text-yellow-400" : "border-purple-400 text-purple-400"} font-mono text-xs`}>
+                      <Badge variant="outline" className={`${project.phase === "Current" ? "border-green-400 text-green-400" : project.phase === "Completed" ? "border-emerald-400 text-emerald-400 bg-emerald-400/10" : project.phase === "Priority" ? "border-blue-400 text-blue-400" : project.phase === "Upcoming" ? "border-yellow-400 text-yellow-400" : "border-purple-400 text-purple-400"} font-mono text-xs`}>
                         {project.phase}
                       </Badge>
                       <h3 className="text-2xl font-bold text-white">{project.title}</h3>

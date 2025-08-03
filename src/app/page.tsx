@@ -192,17 +192,52 @@ export default function Home() {
 
       {/* Projects Tile */}
       <Card
-        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-950/60 to-red-900/60 border-red-800/50 tile-hover"
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-950/60 to-red-900/60 border-red-800/50 tile-hover relative overflow-hidden group"
         onClick={() => router.push('/projects')}
       >
-        <div className="flex flex-col h-full">
-          <div className="flex items-center gap-2 mb-3">
-            <FolderOpen className="w-5 h-5 text-red-400" />
-            <h3 className="font-semibold text-sm md:text-base text-red-100">Projects</h3>
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <pattern id="grid" patternUnits="userSpaceOnUse" width="20" height="20">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-red-400" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <circle cx="80" cy="20" r="15" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-red-400 animate-pulse" />
+            <path d="M10,50 Q30,30 50,50 T90,50" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-red-400 opacity-50" />
+          </svg>
+        </div>
+        
+        <div className="flex flex-col h-full relative z-10">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <FolderOpen className="w-5 h-5 text-red-400" />
+              <h3 className="font-semibold text-sm md:text-base text-red-100">Projects</h3>
+            </div>
+            <span className="text-xs text-red-400 bg-red-400/20 px-2 py-1 rounded-full">1 Completed</span>
           </div>
           <div className="flex-1 flex flex-col justify-center">
-            <p className="text-xs md:text-sm text-red-300 mb-1">Personal Portfolio & Tools</p>
-            <p className="text-xs text-red-400">Web Dev • Cybersecurity • Innovation</p>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+              <p className="text-xs md:text-sm text-red-300 font-medium">Banking Security Platform</p>
+              <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <div className="flex flex-wrap gap-1">
+              <span className="text-xs bg-red-950/50 text-red-300 px-2 py-0.5 rounded">AI/ML</span>
+              <span className="text-xs bg-red-950/50 text-red-300 px-2 py-0.5 rounded">PySide6</span>
+              <span className="text-xs bg-red-950/50 text-red-300 px-2 py-0.5 rounded">SQLite</span>
+            </div>
+          </div>
+          <div className="mt-3 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="text-xs text-red-400">100% Complete</div>
+            </div>
+            <svg className="w-4 h-4 text-red-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
         </div>
       </Card>
