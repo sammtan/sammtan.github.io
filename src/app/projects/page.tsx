@@ -40,15 +40,15 @@ export default function ProjectsPage() {
       progress: 100
     },
     {
-      title: "AI-Powered Threat Detection System",
-      description: "Advanced threat detection platform using machine learning for network traffic anomaly detection, malware classification, and zero-day threat identification. Features SIEM integration, automated incident response, and threat intelligence correlation capabilities.",
-      tech: ["Python", "TensorFlow", "Elasticsearch", "Kibana", "Docker", "Apache Kafka"],
-      status: "Planned",
+      title: "SpecialistAI System",
+      description: "Modular multi-agent AI system with a Coordinator model that intelligently routes tasks to specialized Expert models. Features task analysis and routing, role-based specialists (Code Expert, Data Analyst, Content Creator, General Assistant), 4-bit quantization for efficient Colab execution, and minimal dependencies. Built with clean architecture perfect for learning and extending.",
+      tech: ["Python", "Transformers", "Phi-2", "PyTorch", "Google Colab"],
+      status: "In Progress",
       stars: 0,
-      github: "#",
+      github: "https://github.com/sammtan/specialist-ai",
       demo: null,
-      phase: "Future",
-      progress: 0
+      phase: "Current",
+      progress: 40
     }
   ];
 

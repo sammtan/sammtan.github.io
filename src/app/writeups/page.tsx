@@ -1,56 +1,21 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, Eye, Shield, Flag, AlertTriangle } from "lucide-react";
+import { Calendar, Clock, Shield, Flag, AlertTriangle } from "lucide-react";
+import Link from "next/link";
 
 export default function WriteupsPage() {
   const writeups = [
     {
-      type: "CVE",
-      id: "CVE-2024-XXXX",
-      title: "Buffer Overflow in Authentication Module",
-      description: "Critical buffer overflow vulnerability discovered in enterprise authentication system allowing remote code execution.",
-      severity: "Critical",
-      score: "9.8",
-      date: "2024-01-15",
-      readTime: "12 min",
-      views: 2847,
-      tags: ["Buffer Overflow", "RCE", "Authentication", "C++"]
-    },
-    {
       type: "CTF",
-      id: "HackTheBox",
-      title: "Penetration Testing Lab - 'Epsilon'",
-      description: "Complete walkthrough of advanced penetration testing challenge involving web exploitation and privilege escalation.",
-      severity: "Hard",
+      id: "VulnHub",
+      title: "DarkHole 2 - Complete Walkthrough",
+      description: "Multi-stage penetration testing of VulnHub machine involving Git repository exposure, SQL injection, port forwarding, and privilege escalation techniques.",
+      severity: "Intermediate",
       score: null,
-      date: "2024-01-08",
-      readTime: "25 min",
-      views: 1523,
-      tags: ["Web Exploitation", "Privilege Escalation", "SQL Injection", "Linux"]
-    },
-    {
-      type: "CVE",
-      id: "CVE-2023-YYYY",
-      title: "SQL Injection in Web Application Framework",
-      description: "Time-based blind SQL injection vulnerability in popular web framework affecting user authentication.",
-      severity: "High",
-      score: "8.1",
-      date: "2023-12-22",
-      readTime: "8 min",
-      views: 3921,
-      tags: ["SQL Injection", "Web Security", "Authentication", "PHP"]
-    },
-    {
-      type: "CTF",
-      id: "TryHackMe",
-      title: "Advanced Forensics Challenge - 'Digital Detective'",
-      description: "Step-by-step digital forensics investigation involving network traffic analysis and memory dump examination.",
-      severity: "Medium",
-      score: null,
-      date: "2023-12-15",
-      readTime: "18 min",
-      views: 1876,
-      tags: ["Digital Forensics", "Network Analysis", "Memory Dump", "Wireshark"]
+      date: "2025-08-05",
+      readTime: "20 min",
+      tags: ["VulnHub", "Web Exploitation", "SQL Injection", "SSH", "Port Forwarding", "Privilege Escalation"],
+      slug: "darkhole-2"
     }
   ];
 
@@ -69,25 +34,60 @@ export default function WriteupsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-4 md:p-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-2 sm:p-4 md:p-8">
+      <div className="max-w-4xl mx-auto px-2 sm:px-0">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4">CVE & CTF Writeups</h1>
-          <p className="text-slate-300 text-lg">Detailed security research findings, vulnerability disclosures, and capture-the-flag challenge solutions.</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 break-words">CVE & CTF Writeups</h1>
+          <p className="text-slate-300 text-base sm:text-lg break-words">Detailed security research findings, vulnerability disclosures, and capture-the-flag challenge solutions.</p>
         </div>
 
         {/* Writeups List */}
         <div className="space-y-6">
           {writeups.map((writeup, index) => {
             const TypeIcon = getTypeIcon(writeup.type);
-            return (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-all duration-300 hover:scale-[1.01] cursor-pointer">
-                <div className="p-6">
+            // Get theme colors based on writeup type/content
+            const getWriteupTheme = (writeup: typeof writeups[0]) => {
+              if (writeup.slug === "darkhole-2") {
+                return {
+                  bg: "bg-gradient-to-br from-red-900/60 to-orange-900/60",
+                  border: "border-red-700/50",
+                  accent: "text-red-400",
+                  hover: "hover:from-red-900/80 hover:to-orange-900/80"
+                };
+              }
+              // Default theme for other writeups
+              return {
+                bg: "bg-gradient-to-br from-slate-800/50 to-slate-900/50", 
+                border: "border-slate-700",
+                accent: "text-blue-400",
+                hover: "hover:from-slate-800/70 hover:to-slate-900/70"
+              };
+            };
+
+            const theme = getWriteupTheme(writeup);
+            const CardContent = (
+              <Card key={index} className={`${theme.bg} ${theme.border} ${theme.hover} transition-all duration-300 hover:scale-[1.01] cursor-pointer relative overflow-hidden`}>
+                {/* Background Pattern for DarkHole 2 */}
+                {writeup.slug === "darkhole-2" && (
+                  <div className="absolute inset-0 opacity-10">
+                    <svg viewBox="0 0 200 120" className="w-full h-full">
+                      <defs>
+                        <pattern id="hack-pattern" patternUnits="userSpaceOnUse" width="40" height="40">
+                          <path d="M20 5v30M5 20h30M15 15l10 10M25 15l-10 10" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-red-400" />
+                          <circle cx="20" cy="20" r="3" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-red-400" />
+                        </pattern>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#hack-pattern)" />
+                    </svg>
+                  </div>
+                )}
+                
+                <div className="p-6 relative z-10">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <TypeIcon className="w-6 h-6 text-slate-400" />
+                      <TypeIcon className={`w-6 h-6 ${theme.accent}`} />
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <Badge variant="outline" className="text-xs font-mono">
@@ -98,14 +98,14 @@ export default function WriteupsPage() {
                             {writeup.score && ` (${writeup.score})`}
                           </Badge>
                         </div>
-                        <h3 className="text-xl font-semibold text-white">{writeup.title}</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-white break-words">{writeup.title}</h3>
                       </div>
                     </div>
                     <AlertTriangle className="w-5 h-5 text-slate-400" />
                   </div>
 
                   {/* Description */}
-                  <p className="text-slate-300 mb-4 leading-relaxed">{writeup.description}</p>
+                  <p className="text-slate-300 mb-4 leading-relaxed text-sm sm:text-base break-words">{writeup.description}</p>
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -127,15 +127,19 @@ export default function WriteupsPage() {
                         <Clock className="w-4 h-4" />
                         <span>{writeup.readTime}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Eye className="w-4 h-4" />
-                        <span>{writeup.views.toLocaleString()}</span>
-                      </div>
                     </div>
-                    <span className="text-blue-400 hover:text-blue-300 transition-colors">Read More →</span>
+                    <span className={`${theme.accent} hover:opacity-75 transition-colors`}>Read More →</span>
                   </div>
                 </div>
               </Card>
+            );
+
+            return writeup.slug ? (
+              <Link key={index} href={`/writeups/${writeup.slug}`}>
+                {CardContent}
+              </Link>
+            ) : (
+              CardContent
             );
           })}
         </div>

@@ -489,17 +489,55 @@ export default function Home() {
 
       {/* CVE/CTF Writeups Tile */}
       <Card
-        className="col-span-6 md:col-span-4 lg:col-span-4 row-span-2 md:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-900/60 to-red-950/60 border-red-700/50 tile-hover"
+        className="col-span-6 md:col-span-4 lg:col-span-4 row-span-2 md:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-900/60 to-red-950/60 border-red-700/50 tile-hover relative overflow-hidden group"
         onClick={() => router.push('/writeups')}
       >
-        <div className="flex flex-col h-full">
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <svg viewBox="0 0 200 120" className="w-full h-full">
+            <defs>
+              <pattern id="security-pattern" patternUnits="userSpaceOnUse" width="30" height="30">
+                <path d="M15 5v20M5 15h20M10 10l10 10M20 10l-10 10" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-red-400" />
+                <circle cx="15" cy="15" r="3" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-red-400" />
+                <rect x="12" y="12" width="6" height="6" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-red-400" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#security-pattern)" />
+          </svg>
+        </div>
+
+        <div className="flex flex-col h-full relative z-10">
           <div className="flex items-center gap-2 mb-3">
-            <Shield className="w-5 h-5 text-red-400" />
-            <h3 className="font-semibold text-sm md:text-base text-red-100">CVE/CTF Writeups</h3>
+            <div className="relative">
+              <Shield className="w-5 h-5 text-red-400" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+            </div>
+            <h3 className="font-semibold text-sm md:text-base text-red-100">CVE & CTF Writeups</h3>
           </div>
+          
           <div className="flex-1 flex flex-col justify-center">
-            <p className="text-xs md:text-sm text-red-300 mb-2">Latest: CVE-2024-XXXX</p>
-            <p className="text-xs text-red-400">Buffer overflow in...</p>
+            <div className="mb-3">
+              <p className="text-xs md:text-sm text-red-300 mb-1">🆕 Latest: DarkHole 2</p>
+              <p className="text-xs text-red-400 mb-2">VulnHub machine walkthrough with multi-stage exploitation</p>
+            </div>
+            
+            <div className="flex flex-wrap gap-1 mb-3">
+              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">SQL Injection</Badge>
+              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">Git Exposure</Badge>
+              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">Privilege Escalation</Badge>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between mt-auto">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-red-400">1 Writeup</span>
+              <div className="flex gap-1">
+                <div className="w-1 h-1 bg-red-400 rounded-full"></div>
+              </div>
+            </div>
+            <svg className="w-4 h-4 text-red-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
         </div>
       </Card>
