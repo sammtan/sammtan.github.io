@@ -8,6 +8,10 @@ export default function CertsPage() {
   const router = useRouter();
   const [showPdfDialog, setShowPdfDialog] = useState(false);
   const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title = "Certifications - samm.tan";
+  }, []);
   const [selectedPdf, setSelectedPdf] = useState<{name: string, path: string} | null>(null);
 
   useEffect(() => {

@@ -1,8 +1,17 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Terminal, Code, Shield, Network, Database, Github, Clock } from "lucide-react";
+import { Terminal, Code, Shield, Network, Database, Github, Clock, ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function ToolsPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    document.title = "Tools - samm.tan";
+  }, []);
   const toolCategories = [
     {
       title: "Security Tools",
@@ -92,6 +101,15 @@ export default function ToolsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
+        {/* Back Button */}
+        <button
+          onClick={() => router.push('/')}
+          className="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-300 group"
+        >
+          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+          Back to Portfolio
+        </button>
+        
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-4">Security Tools & Network Utilities</h1>

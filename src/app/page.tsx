@@ -109,9 +109,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen p-4 md:p-6 lg:p-8 grid grid-cols-12 grid-rows-12 md:grid-rows-10 gap-3 md:gap-4 lg:gap-6 tile-container">
+    <div className="h-screen p-2 md:p-4 lg:p-6 grid grid-cols-12 grid-rows-12 md:grid-rows-10 gap-2 md:gap-3 lg:gap-4 tile-container overflow-hidden">
       {/* Main Profile Tile - Full Vertical */}
-      <Card className="col-span-12 md:col-span-7 lg:col-span-8 row-span-6 p-6 relative overflow-hidden bg-gradient-to-br from-slate-900/80 to-slate-800/80 border-slate-700/50 cursor-pointer tile-hover">
+      <Card className="col-span-12 md:col-span-7 lg:col-span-8 row-span-6 p-4 md:p-5 lg:p-6 relative overflow-hidden bg-gradient-to-br from-slate-900/80 to-slate-800/80 border-slate-700/50 cursor-pointer tile-hover">
         {/* Animated Triangular Mesh - Behind everything */}
         <div className="absolute inset-0 opacity-40 pointer-events-none">
           <AnimatedMesh
@@ -530,8 +530,9 @@ export default function Home() {
 
           <div className="flex items-center justify-between mt-auto">
             <div className="flex items-center gap-2">
-              <span className="text-xs text-red-400">1 Writeup</span>
+              <span className="text-xs text-red-400">2 Writeups</span>
               <div className="flex gap-1">
+                <div className="w-1 h-1 bg-red-400 rounded-full"></div>
                 <div className="w-1 h-1 bg-red-400 rounded-full"></div>
               </div>
             </div>

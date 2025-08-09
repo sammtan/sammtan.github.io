@@ -5,10 +5,14 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, ArrowLeft, Shield, Terminal, Network, Database, Key, Flag, Image as ImageIcon, Eye } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function DarkHole2WriteupPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title = "DarkHole 2 Writeup - samm.tan";
+  }, []);
 
   // Interactive Image Component
   const InteractiveImage = ({ src, alt, caption, phase }: { src: string, alt: string, caption: string, phase: string }) => {

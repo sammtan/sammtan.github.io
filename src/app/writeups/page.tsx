@@ -1,10 +1,31 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, Shield, Flag, AlertTriangle } from "lucide-react";
+import { Calendar, Clock, Shield, Flag, AlertTriangle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function WriteupsPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    document.title = "CVE & CTF Writeups - samm.tan";
+  }, []);
   const writeups = [
+    {
+      type: "CTF", 
+      id: "VulnHub",
+      title: "Tiki-1 - When CMS Security Goes Tiki-Toki Wrong",
+      description: "Complete exploitation of Tiki CMS 21 featuring CVE-2020-15906 authentication bypass, SMB enumeration, credential harvesting, and sudo privilege escalation.",
+      severity: "Beginner-Intermediate",
+      score: null,
+      date: "2025-08-06",
+      readTime: "18 min",
+      tags: ["VulnHub", "Tiki CMS", "CVE-2020-15906", "Authentication Bypass", "SMB Enumeration", "SSH"],
+      slug: "tiki-1"
+    },
     {
       type: "CTF",
       id: "VulnHub",
@@ -36,6 +57,15 @@ export default function WriteupsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-2 sm:p-4 md:p-8">
       <div className="max-w-4xl mx-auto px-2 sm:px-0">
+        {/* Back Button */}
+        <button
+          onClick={() => router.push('/')}
+          className="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-300 group"
+        >
+          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+          Back to Portfolio
+        </button>
+        
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 break-words">CVE & CTF Writeups</h1>
@@ -43,11 +73,19 @@ export default function WriteupsPage() {
         </div>
 
         {/* Writeups List */}
-        <div className="space-y-6">
+        <div className="space-y-16">
           {writeups.map((writeup, index) => {
             const TypeIcon = getTypeIcon(writeup.type);
             // Get theme colors based on writeup type/content
             const getWriteupTheme = (writeup: typeof writeups[0]) => {
+              if (writeup.slug === "tiki-1") {
+                return {
+                  bg: "bg-gradient-to-br from-green-900/60 to-emerald-900/60",
+                  border: "border-green-700/50",
+                  accent: "text-green-400",
+                  hover: "hover:from-green-900/80 hover:to-emerald-900/80"
+                };
+              }
               if (writeup.slug === "darkhole-2") {
                 return {
                   bg: "bg-gradient-to-br from-red-900/60 to-orange-900/60",
@@ -67,7 +105,24 @@ export default function WriteupsPage() {
 
             const theme = getWriteupTheme(writeup);
             const CardContent = (
-              <Card key={index} className={`${theme.bg} ${theme.border} ${theme.hover} transition-all duration-300 hover:scale-[1.01] cursor-pointer relative overflow-hidden`}>
+              <Card key={index} className={`${theme.bg} ${theme.border} ${theme.hover} transition-all duration-300 hover:scale-[1.01] cursor-pointer relative overflow-hidden mb-16`}>
+                {/* Background Pattern for Tiki-1 */}
+                {writeup.slug === "tiki-1" && (
+                  <div className="absolute inset-0 opacity-10">
+                    <svg viewBox="0 0 200 120" className="w-full h-full">
+                      <defs>
+                        <pattern id="tiki-pattern" patternUnits="userSpaceOnUse" width="30" height="30">
+                          <rect x="8" y="8" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-green-400" />
+                          <path d="M15 3v24M3 15h24" stroke="currentColor" strokeWidth="0.3" fill="none" className="text-green-400" />
+                          <circle cx="15" cy="15" r="2" fill="currentColor" className="text-green-400" />
+                          <path d="M10 10h10v10h-10z" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-green-400" />
+                        </pattern>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#tiki-pattern)" />
+                    </svg>
+                  </div>
+                )}
+
                 {/* Background Pattern for DarkHole 2 */}
                 {writeup.slug === "darkhole-2" && (
                   <div className="absolute inset-0 opacity-10">

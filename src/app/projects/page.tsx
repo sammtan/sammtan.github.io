@@ -2,9 +2,17 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink, Star, Activity } from "lucide-react";
+import { Github, ExternalLink, Star, Activity, ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ProjectsPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    document.title = "Projects - samm.tan";
+  }, []);
+
   const projects = [
     {
       title: "Portfolio Website",
@@ -55,6 +63,15 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
+        {/* Back Button */}
+        <button
+          onClick={() => router.push('/')}
+          className="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-300 group"
+        >
+          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+          Back to Portfolio
+        </button>
+        
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-4">Projects</h1>
@@ -171,32 +188,32 @@ export default function ProjectsPage() {
           })}
         </div>
 
-        {/* Development Roadmap */}
+        {/* Development Achievement Summary */}
         <div className="mt-12">
           <Card className="bg-gradient-to-r from-slate-800/30 to-slate-700/30 border-slate-600 border-dashed">
             <div className="p-8">
-              <h3 className="text-2xl font-semibold text-white mb-4 text-center">Strategic Development Timeline</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4 text-center">Development Achievements</h3>
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div className="space-y-2">
-                  <div className="w-12 h-12 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-blue-400 font-bold">Q1</span>
+                  <div className="w-12 h-12 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center">
+                    <span className="text-emerald-400 font-bold">✓</span>
                   </div>
-                  <h4 className="text-blue-400 font-semibold">Banking Security Platform</h4>
-                  <p className="text-slate-400 text-sm">Target: BCA & Bank Mandiri internships</p>
+                  <h4 className="text-emerald-400 font-semibold">Banking Security Platform</h4>
+                  <p className="text-slate-400 text-sm">AI-powered fraud detection system completed</p>
                 </div>
                 <div className="space-y-2">
-                  <div className="w-12 h-12 mx-auto bg-yellow-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-yellow-400 font-bold">Q2</span>
+                  <div className="w-12 h-12 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center">
+                    <span className="text-emerald-400 font-bold">✓</span>
                   </div>
-                  <h4 className="text-yellow-400 font-semibold">Vulnerability Management</h4>
-                  <p className="text-slate-400 text-sm">Target: Enterprise security roles</p>
+                  <h4 className="text-emerald-400 font-semibold">NetGuard ML</h4>
+                  <p className="text-slate-400 text-sm">Network security simulator with ML threat detection</p>
                 </div>
                 <div className="space-y-2">
-                  <div className="w-12 h-12 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-purple-400 font-bold">Q3</span>
+                  <div className="w-12 h-12 mx-auto bg-green-500/20 rounded-full flex items-center justify-center">
+                    <span className="text-green-400 font-bold">⚡</span>
                   </div>
-                  <h4 className="text-purple-400 font-semibold">AI Threat Detection</h4>
-                  <p className="text-slate-400 text-sm">Target: Advanced cybersecurity positions</p>
+                  <h4 className="text-green-400 font-semibold">SpecialistAI System</h4>
+                  <p className="text-slate-400 text-sm">Multi-agent AI system currently in development</p>
                 </div>
               </div>
             </div>
