@@ -109,7 +109,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen p-2 md:p-4 lg:p-6 grid grid-cols-12 grid-rows-12 md:grid-rows-10 gap-2 md:gap-3 lg:gap-4 tile-container overflow-hidden">
+    <div className="h-screen p-2 md:p-4 lg:p-6 grid grid-cols-12 grid-rows-12 md:grid-rows-10 gap-2 md:gap-3 lg:gap-4 tile-container home-page-container">
       {/* Main Profile Tile - Full Vertical */}
       <Card className="col-span-12 md:col-span-7 lg:col-span-8 row-span-6 p-4 md:p-5 lg:p-6 relative overflow-hidden bg-gradient-to-br from-slate-900/80 to-slate-800/80 border-slate-700/50 cursor-pointer tile-hover">
         {/* Animated Triangular Mesh - Behind everything */}

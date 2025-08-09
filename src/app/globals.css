@@ -118,7 +118,6 @@
   }
   html, body {
     height: 100%;
-    overflow: hidden;
   }
   body {
     @apply bg-background text-foreground;
@@ -394,5 +393,10 @@
   }
   .delay-600 {
     animation-delay: 600ms;
+  }
+
+  /* Home page specific overflow control */
+  .home-page-container {
+    overflow: hidden;
   }
 }
