@@ -395,8 +395,10 @@
     animation-delay: 600ms;
   }
 
-  /* Home page specific overflow control */
-  .home-page-container {
-    overflow: hidden;
+  /* Home page specific overflow control - desktop only */
+  @media (min-width: 1024px) {
+    .home-page-container {
+      overflow: hidden;
+    }
   }
 }

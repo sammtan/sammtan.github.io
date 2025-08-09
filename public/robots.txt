@@ -1,0 +1,23 @@
+# robots.txt for sammtan.github.io
+
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /projects
+Allow: /writeups
+Allow: /tools
+Allow: /thoughts
+Allow: /certs
+Allow: /writeups/darkhole-2
+Allow: /writeups/tiki-1
+
+# Block access to internal files
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://sammtan.github.io/sitemap.xml
+
+# Crawl delay (optional - be respectful)
+Crawl-delay: 1

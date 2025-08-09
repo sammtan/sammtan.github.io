@@ -2,10 +2,11 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, ArrowLeft, Shield, Terminal, Network, Database, Key, Flag, Image as ImageIcon, Eye } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Shield, Terminal, Network, Database, Key, Flag, Image as ImageIcon, Eye, Crosshair } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { WriteupNavigator } from "@/components/writeup-navigator";
 
 export default function DarkHole2WriteupPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -170,6 +171,13 @@ export default function DarkHole2WriteupPage() {
           </div>
         </Card>
 
+        {/* Dynamic Navigation */}
+        <WriteupNavigator 
+          accentColor="text-red-400"
+          title="Exploit Chain"
+          icon={<Crosshair className="w-5 h-5 text-red-400" />}
+        />
+
         {/* Writeup Content */}
         <Card className="bg-slate-800/50 border-slate-700 mx-1 sm:mx-0">
           <div className="p-4 sm:p-6 md:p-8">
@@ -197,7 +205,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Environment Setup */}
-              <section className="mb-8">
+              <section id="environment-setup" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4">Environment Setup</h2>
                 <p className="text-slate-300 leading-relaxed mb-4">
                   So I&apos;ve got this DarkHole 2 machine running on VMware Player, and my trusty Kali Linux box ready to cause some chaos. Both are sitting pretty on a NAT network, probably plotting against each other. Little does DarkHole know what&apos;s coming...
@@ -219,7 +227,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Phase 1: Network Discovery */}
-              <section className="mb-8">
+              <section id="phase-1-network-discovery" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
                   <Network className="w-6 h-6 text-blue-400" />
                   Phase 1: Network Discovery - The Great IP Hunt
@@ -260,7 +268,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Phase 2: Port Scanning */}
-              <section className="mb-8">
+              <section id="phase-2-port-scanning" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
                   <Terminal className="w-6 h-6 text-blue-400" />
                   Phase 2: Port Scanning & Service Enumeration
@@ -306,7 +314,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Phase 3: Git Repository Analysis */}
-              <section className="mb-8">
+              <section id="phase-3-git-analysis" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
                   <Shield className="w-6 h-6 text-blue-400" />
                   Phase 3: Directory Enumeration & Git Repository Analysis
@@ -382,7 +390,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Phase 4: SQL Injection */}
-              <section className="mb-8">
+              <section id="phase-4-sql-injection" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
                   <Database className="w-6 h-6 text-blue-400" />
                   Phase 4: SQL Injection Discovery & Exploitation
@@ -418,7 +426,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Phase 5: SSH Access */}
-              <section className="mb-8">
+              <section id="phase-5-ssh-access" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
                   <Key className="w-6 h-6 text-blue-400" />
                   Phase 5: SSH Access & System Enumeration
@@ -472,7 +480,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Phase 6: Port Forwarding & RCE */}
-              <section className="mb-8">
+              <section id="phase-6-port-forwarding-rce" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
                   <Terminal className="w-6 h-6 text-blue-400" />
                   Phase 6: Port Forwarding & RCE Exploitation
@@ -554,7 +562,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Phase 7: Privilege Escalation */}
-              <section className="mb-8">
+              <section id="phase-7-privilege-escalation" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
                   <Flag className="w-6 h-6 text-blue-400" />
                   Phase 7: Privilege Escalation & Flag Capture
@@ -604,7 +612,7 @@ export default function DarkHole2WriteupPage() {
               </section>
 
               {/* Summary */}
-              <section className="mb-8">
+              <section id="summary" className="mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4">Summary - What a Wild Ride</h2>
                 <p className="text-slate-300 leading-relaxed mb-4">
                   Well, that was... something! This walkthrough just demonstrated how NOT to secure a machine, but hey, it made for an entertaining penetration test. This machine was like a perfect storm of security fails - every single phase revealed another layer of &quot;nope, that&apos;s not how you do it.&quot;

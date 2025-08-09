@@ -15,13 +15,13 @@ export default function WriteupsPage() {
   }, []);
   const writeups = [
     {
-      type: "CTF", 
+      type: "CTF",
       id: "VulnHub",
       title: "Tiki-1 - When CMS Security Goes Tiki-Toki Wrong",
       description: "Complete exploitation of Tiki CMS 21 featuring CVE-2020-15906 authentication bypass, SMB enumeration, credential harvesting, and sudo privilege escalation.",
       severity: "Beginner-Intermediate",
       score: null,
-      date: "2025-08-06",
+      date: "2022-04-29",
       readTime: "18 min",
       tags: ["VulnHub", "Tiki CMS", "CVE-2020-15906", "Authentication Bypass", "SMB Enumeration", "SSH"],
       slug: "tiki-1"
@@ -33,7 +33,7 @@ export default function WriteupsPage() {
       description: "Multi-stage penetration testing of VulnHub machine involving Git repository exposure, SQL injection, port forwarding, and privilege escalation techniques.",
       severity: "Intermediate",
       score: null,
-      date: "2025-08-05",
+      date: "2022-03-13",
       readTime: "20 min",
       tags: ["VulnHub", "Web Exploitation", "SQL Injection", "SSH", "Port Forwarding", "Privilege Escalation"],
       slug: "darkhole-2"
@@ -55,7 +55,7 @@ export default function WriteupsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-2 sm:p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-2 sm:p-4 md:p-8" suppressHydrationWarning>
       <div className="max-w-4xl mx-auto px-2 sm:px-0">
         {/* Back Button */}
         <button
@@ -65,7 +65,7 @@ export default function WriteupsPage() {
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
           Back to Portfolio
         </button>
-        
+
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 break-words">CVE & CTF Writeups</h1>
@@ -96,7 +96,7 @@ export default function WriteupsPage() {
               }
               // Default theme for other writeups
               return {
-                bg: "bg-gradient-to-br from-slate-800/50 to-slate-900/50", 
+                bg: "bg-gradient-to-br from-slate-800/50 to-slate-900/50",
                 border: "border-slate-700",
                 accent: "text-blue-400",
                 hover: "hover:from-slate-800/70 hover:to-slate-900/70"
@@ -137,7 +137,7 @@ export default function WriteupsPage() {
                     </svg>
                   </div>
                 )}
-                
+
                 <div className="p-6 relative z-10">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">

@@ -109,9 +109,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen p-2 md:p-4 lg:p-6 grid grid-cols-12 grid-rows-12 md:grid-rows-10 gap-2 md:gap-3 lg:gap-4 tile-container home-page-container">
+    <div className="min-h-screen lg:h-screen p-4 md:p-6 lg:p-6 grid grid-cols-12 grid-rows-12 md:grid-rows-10 lg:grid-rows-10 gap-3 md:gap-4 lg:gap-4 tile-container lg:home-page-container">
       {/* Main Profile Tile - Full Vertical */}
-      <Card className="col-span-12 md:col-span-7 lg:col-span-8 row-span-6 p-4 md:p-5 lg:p-6 relative overflow-hidden bg-gradient-to-br from-slate-900/80 to-slate-800/80 border-slate-700/50 cursor-pointer tile-hover">
+      <Card className="col-span-12 md:col-span-7 lg:col-span-8 row-span-4 md:row-span-6 lg:row-span-6 p-4 md:p-5 lg:p-6 relative overflow-hidden bg-gradient-to-br from-slate-900/80 to-slate-800/80 border-slate-700/50 cursor-pointer tile-hover">
         {/* Animated Triangular Mesh - Behind everything */}
         <div className="absolute inset-0 opacity-40 pointer-events-none">
           <AnimatedMesh
@@ -128,8 +128,8 @@ export default function Home() {
         {/* Clean blur layer */}
         <div className="absolute inset-0 pointer-events-none z-5 backdrop-blur-md bg-gradient-to-br from-slate-900/10 via-slate-800/5 to-slate-700/8"></div>
 
-        <div className="flex flex-col h-full gap-6 relative z-10">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+        <div className="flex flex-col h-full gap-4 md:gap-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6">
             {/* Profile Photo */}
             <div className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full bg-muted shrink-0 overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -152,15 +152,17 @@ export default function Home() {
               <p className="text-sm text-slate-400 mb-4">Currently studying Computer Engineering at University of Indonesia</p>
 
               {/* Employment Status */}
-              <Badge variant="secondary" className="w-fit mb-4 bg-blue-900/50 text-blue-200 border-blue-800/50 flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                Open to Work
-              </Badge>
-              <p className="text-sm md:text-base font-medium mb-4 text-slate-100 leading-relaxed">Passionate cybersecurity enthusiast with <span className="text-red-400">Advanced</span> knowledge in <span className="text-blue-400">Network</span> security, <span className="text-red-400">Digital</span> forensics, and <span className="text-blue-400">Reverse</span> engineering. <span className="text-red-400">Experienced</span> in <span className="text-blue-400">Advanced</span> persistent threat analysis and <span className="text-red-400">Security</span> operations. <span className="text-blue-400">Seeking</span> opportunities to <span className="text-red-400">Apply</span> my <span className="text-blue-400">Machine</span> learning expertise in <span className="text-red-400">Unified</span> threat detection and <span className="text-blue-400">Enhanced</span> cybersecurity <span className="text-red-400">Learning</span> systems.</p>
+              <div className="flex justify-center md:justify-start mb-4">
+                <Badge variant="secondary" className="bg-blue-900/50 text-blue-200 border-blue-800/50 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  Open to Work
+                </Badge>
+              </div>
+              <p className="text-sm md:text-base font-medium text-slate-100 leading-relaxed">Passionate cybersecurity enthusiast with <span className="text-red-400">Advanced</span> knowledge in <span className="text-blue-400">Network</span> security, <span className="text-red-400">Digital</span> forensics, and <span className="text-blue-400">Reverse</span> engineering. <span className="text-red-400">Experienced</span> in <span className="text-blue-400">Advanced</span> persistent threat analysis and <span className="text-red-400">Security</span> operations. <span className="text-blue-400">Seeking</span> opportunities to <span className="text-red-400">Apply</span> my <span className="text-blue-400">Machine</span> learning expertise in <span className="text-red-400">Unified</span> threat detection and <span className="text-blue-400">Enhanced</span> cybersecurity <span className="text-red-400">Learning</span> systems.</p>
             </div>
           </div>
 
-          <div className="mt-auto pt-4">
+          <div className="mt-auto pt-2 md:pt-4">
             <div className="flex items-center gap-2 text-sm text-slate-400 justify-center md:justify-start mb-2">
               <MapPin className="w-4 h-4" />
               <span>Based in Jakarta, IDN</span>
@@ -176,7 +178,7 @@ export default function Home() {
 
       {/* Certifications & Education Tile */}
       <Card
-        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-950/60 to-blue-900/60 border-blue-800/50 tile-hover relative overflow-hidden"
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 md:row-span-2 lg:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-950/60 to-blue-900/60 border-blue-800/50 tile-hover relative overflow-hidden"
         onClick={() => router.push('/certs')}
       >
         {/* Animated Background Pattern - Similar to Projects/Security Arsenal */}
@@ -203,101 +205,74 @@ export default function Home() {
             <h3 className="font-semibold text-sm md:text-base text-blue-100">Certifications</h3>
           </div>
           
-          {/* Swipable Certification Cards */}
-          <div className="flex-1 relative overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="cert-cards-container flex gap-3 animate-slide-certs">
-                {/* Card 1 - Ethical Hacker */}
-                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs">🔒</span>
-                    <span className="text-xs font-medium text-blue-200">Ethical Hacker - Cisco</span>
+          {/* Mobile/Tablet: Simple list, Desktop: Animated cards */}
+          <div className="flex-1 flex flex-col justify-center">
+            {/* Mobile version */}
+            <div className="md:hidden space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-blue-300">🔒 Ethical Hacker</span>
+                <span className="text-blue-400">Cisco</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-blue-300">🌐 CCNA Enterprise</span>
+                <span className="text-blue-400">Networking</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-blue-300">🍃 MongoDB</span>
+                <span className="text-blue-400">7 Certs</span>
+              </div>
+            </div>
+            
+            {/* Tablet/Desktop version - Animated cards */}
+            <div className="hidden md:block flex-1 relative overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="cert-cards-container flex gap-3 animate-slide-certs">
+                  {/* Card 1 - Ethical Hacker */}
+                  <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs">🔒</span>
+                      <span className="text-xs font-medium text-blue-200">Ethical Hacker - Cisco</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Pentesting</span>
+                      <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Security</span>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Pentesting</span>
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Security</span>
+                  
+                  {/* Card 2 - CCNA */}
+                  <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs">🌐</span>
+                      <span className="text-xs font-medium text-blue-200">CCNA Enterprise</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Networking</span>
+                      <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Cisco</span>
+                    </div>
                   </div>
-                </div>
-                
-                {/* Card 2 - CCNA */}
-                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs">🌐</span>
-                    <span className="text-xs font-medium text-blue-200">CCNA Enterprise</span>
+                  
+                  {/* Card 3 - MongoDB */}
+                  <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs">🍃</span>
+                      <span className="text-xs font-medium text-blue-200">MongoDB (7 Certs)</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Database</span>
+                      <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">NoSQL</span>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Networking</span>
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Cisco</span>
-                  </div>
-                </div>
-                
-                {/* Card 3 - MongoDB */}
-                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs">🍃</span>
-                    <span className="text-xs font-medium text-blue-200">MongoDB (7 Certs)</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Database</span>
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">NoSQL</span>
-                  </div>
-                </div>
-                
-                {/* Card 4 - IBM */}
-                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs">💎</span>
-                    <span className="text-xs font-medium text-blue-200">IBM Design Thinking</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Design</span>
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">UX</span>
-                  </div>
-                </div>
-                
-                {/* Card 5 - Workshops */}
-                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs">🛡️</span>
-                    <span className="text-xs font-medium text-blue-200">CSW Workshops (4)</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Ghidra</span>
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">WiFi</span>
-                  </div>
-                </div>
-                
-                {/* Duplicate set for seamless loop */}
-                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs">🔒</span>
-                    <span className="text-xs font-medium text-blue-200">Ethical Hacker - Cisco</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Pentesting</span>
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Security</span>
-                  </div>
-                </div>
-                
-                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs">🌐</span>
-                    <span className="text-xs font-medium text-blue-200">CCNA Enterprise</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Networking</span>
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Cisco</span>
-                  </div>
-                </div>
-                
-                <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs">🍃</span>
-                    <span className="text-xs font-medium text-blue-200">MongoDB (7 Certs)</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Database</span>
-                    <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">NoSQL</span>
+                  
+                  {/* Duplicate cards for loop */}
+                  <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs">🔒</span>
+                      <span className="text-xs font-medium text-blue-200">Ethical Hacker - Cisco</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Pentesting</span>
+                      <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Security</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -322,7 +297,7 @@ export default function Home() {
 
       {/* Projects Tile */}
       <Card
-        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-950/60 to-red-900/60 border-red-800/50 tile-hover relative overflow-hidden group"
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 md:row-span-2 lg:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-950/60 to-red-900/60 border-red-800/50 tile-hover relative overflow-hidden group"
         onClick={() => router.push('/projects')}
       >
         {/* Animated Background Pattern - Similar to Security Arsenal */}
@@ -349,66 +324,94 @@ export default function Home() {
             <h3 className="font-semibold text-sm md:text-base text-red-100">Projects Portfolio</h3>
           </div>
           
-          {/* Swipable Cards Container */}
-          <div className="flex-1 relative overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="project-cards-container flex gap-3 animate-slide-loop">
-                {/* Card 1 - NetGuard ML */}
-                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                    <span className="text-xs font-medium text-red-200">NetGuard ML</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">AI/ML</span>
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
-                  </div>
+          {/* Mobile/Tablet: Simple list, Desktop: Animated cards */}
+          <div className="flex-1 flex flex-col justify-center">
+            {/* Mobile version */}
+            <div className="md:hidden space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                  <span className="text-red-300">NetGuard ML</span>
                 </div>
-                
-                {/* Card 2 - Banking Security */}
-                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                    <span className="text-xs font-medium text-red-200">Banking Security</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Python</span>
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">SQLite</span>
-                  </div>
+                <span className="text-red-400">AI/ML</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                  <span className="text-red-300">Banking Security</span>
                 </div>
-                
-                {/* Card 3 - Portfolio Site */}
-                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                    <span className="text-xs font-medium text-red-200">Portfolio Website</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Next.js</span>
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">React</span>
-                  </div>
+                <span className="text-red-400">Python</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                  <span className="text-red-300">Portfolio Website</span>
                 </div>
-                
-                {/* Duplicate set for seamless loop */}
-                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                    <span className="text-xs font-medium text-red-200">NetGuard ML</span>
+                <span className="text-red-400">Next.js</span>
+              </div>
+            </div>
+            
+            {/* Tablet/Desktop version - Animated cards */}
+            <div className="hidden md:block flex-1 relative overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="project-cards-container flex gap-3 animate-slide-loop">
+                  {/* Card 1 - NetGuard ML */}
+                  <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                      <span className="text-xs font-medium text-red-200">NetGuard ML</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">AI/ML</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">AI/ML</span>
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
+                  
+                  {/* Card 2 - Banking Security */}
+                  <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                      <span className="text-xs font-medium text-red-200">Banking Security</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Python</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">SQLite</span>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                    <span className="text-xs font-medium text-red-200">Banking Security</span>
+                  
+                  {/* Card 3 - Portfolio Site */}
+                  <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                      <span className="text-xs font-medium text-red-200">Portfolio Website</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Next.js</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">React</span>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Python</span>
-                    <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">SQLite</span>
+                  
+                  {/* Duplicate cards for loop */}
+                  <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                      <span className="text-xs font-medium text-red-200">NetGuard ML</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">AI/ML</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
+                    </div>
+                  </div>
+                  
+                  <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                      <span className="text-xs font-medium text-red-200">Banking Security</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Python</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">SQLite</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -433,7 +436,7 @@ export default function Home() {
 
       {/* Tools Tile */}
       <Card
-        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 p-4 cursor-pointer bg-gradient-to-br from-emerald-950/70 to-teal-900/70 border-emerald-800/60 tile-hover relative overflow-hidden"
+        className="col-span-6 md:col-span-5 lg:col-span-4 row-span-2 md:row-span-2 lg:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-emerald-950/70 to-teal-900/70 border-emerald-800/60 tile-hover relative overflow-hidden"
         onClick={() => router.push('/tools')}
       >
         {/* Animated Circuit Pattern */}
@@ -489,7 +492,7 @@ export default function Home() {
 
       {/* CVE/CTF Writeups Tile */}
       <Card
-        className="col-span-6 md:col-span-4 lg:col-span-4 row-span-2 md:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-900/60 to-red-950/60 border-red-700/50 tile-hover relative overflow-hidden group"
+        className="col-span-6 md:col-span-4 lg:col-span-4 row-span-2 md:row-span-2 lg:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-red-900/60 to-red-950/60 border-red-700/50 tile-hover relative overflow-hidden group"
         onClick={() => router.push('/writeups')}
       >
         {/* Animated Background Pattern */}
@@ -545,7 +548,7 @@ export default function Home() {
 
       {/* Personal Documentation/Blog Tile */}
       <Card
-        className="col-span-12 md:col-span-5 lg:col-span-5 row-span-2 md:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-900/60 to-blue-950/60 border-blue-700/50 tile-hover"
+        className="col-span-12 md:col-span-5 lg:col-span-5 row-span-2 md:row-span-2 lg:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-900/60 to-blue-950/60 border-blue-700/50 tile-hover"
         onClick={() => router.push('/thoughts')}
       >
         <div className="flex flex-col h-full">
@@ -569,7 +572,7 @@ export default function Home() {
       <SocialTile icon={Youtube} platform="YouTube" url="https://www.youtube.com/@sammtanX?sub_confirmation=1" />
 
       {/* Tech Stack Tile */}
-      <Card className="col-start-3 col-end-11 md:col-start-3 md:col-end-11 lg:col-start-3 lg:col-end-11 row-span-2 p-4 bg-gradient-to-br from-purple-950/60 to-purple-900/60 border-purple-800/50 tile-hover overflow-hidden">
+      <Card className="col-start-3 col-end-11 md:col-start-3 md:col-end-11 lg:col-start-3 lg:col-end-11 row-span-2 md:row-span-2 lg:row-span-2 p-4 bg-gradient-to-br from-purple-950/60 to-purple-900/60 border-purple-800/50 tile-hover overflow-hidden">
         <div className="flex flex-col h-full">
           <div className="flex items-center gap-2 mb-4">
             <Code2 className="w-5 h-5 text-purple-400" />
