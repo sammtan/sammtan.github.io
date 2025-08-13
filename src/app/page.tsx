@@ -520,20 +520,20 @@ export default function Home() {
           
           <div className="flex-1 flex flex-col justify-center">
             <div className="mb-3">
-              <p className="text-xs md:text-sm text-red-300 mb-1">🆕 Latest: DarkHole 2</p>
-              <p className="text-xs text-red-400 mb-2">VulnHub machine walkthrough with multi-stage exploitation</p>
+              <p className="text-xs md:text-sm text-red-300 mb-1">🆕 Latest: Billy Madison 1.1</p>
+              <p className="text-xs text-red-400 mb-2">90s movie-themed VulnHub machine with port knocking and packet analysis</p>
             </div>
             
             <div className="flex flex-wrap gap-1 mb-3">
-              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">SQL Injection</Badge>
-              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">Git Exposure</Badge>
-              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">Privilege Escalation</Badge>
+              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">Port Knocking</Badge>
+              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">Packet Analysis</Badge>
+              <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">WiFi Cracking</Badge>
             </div>
           </div>
 
           <div className="flex items-center justify-between mt-auto">
             <div className="flex items-center gap-2">
-              <span className="text-xs text-red-400">2 Writeups</span>
+              <span className="text-xs text-red-400">3 Writeups</span>
               <div className="flex gap-1">
                 <div className="w-1 h-1 bg-red-400 rounded-full"></div>
                 <div className="w-1 h-1 bg-red-400 rounded-full"></div>

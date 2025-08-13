@@ -44,6 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/writeups/billy-madison-1-1`,
+      lastModified: '2022-02-03',
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/writeups/darkhole-2`,
       lastModified: '2022-03-13',
       changeFrequency: 'monthly',

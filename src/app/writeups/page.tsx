@@ -16,6 +16,18 @@ export default function WriteupsPage() {
   const writeups = [
     {
       type: "CTF",
+      id: "VulnHub", 
+      title: "Billy Madison 1.1 - When 90s Movies Meet Cybersecurity",
+      description: "A nostalgic journey through port knocking, packet analysis, ROT13 decoding, and WiFi cracking to recover Billy's 12th-grade final project from a movie-themed VulnHub machine.",
+      severity: "Beginner-Intermediate",
+      score: null,
+      date: "2022-02-03",
+      readTime: "25 min",
+      tags: ["VulnHub", "Port Knocking", "Packet Analysis", "ROT13", "WiFi Cracking", "SUID Exploitation"],
+      slug: "billy-madison-1-1"
+    },
+    {
+      type: "CTF",
       id: "VulnHub",
       title: "Tiki-1 - When CMS Security Goes Tiki-Toki Wrong",
       description: "Complete exploitation of Tiki CMS 21 featuring CVE-2020-15906 authentication bypass, SMB enumeration, credential harvesting, and sudo privilege escalation.",
@@ -78,6 +90,14 @@ export default function WriteupsPage() {
             const TypeIcon = getTypeIcon(writeup.type);
             // Get theme colors based on writeup type/content
             const getWriteupTheme = (writeup: typeof writeups[0]) => {
+              if (writeup.slug === "billy-madison-1-1") {
+                return {
+                  bg: "bg-gradient-to-br from-blue-900/60 to-indigo-900/60",
+                  border: "border-blue-700/50",
+                  accent: "text-blue-400",
+                  hover: "hover:from-blue-900/80 hover:to-indigo-900/80"
+                };
+              }
               if (writeup.slug === "tiki-1") {
                 return {
                   bg: "bg-gradient-to-br from-green-900/60 to-emerald-900/60",
@@ -106,6 +126,23 @@ export default function WriteupsPage() {
             const theme = getWriteupTheme(writeup);
             const CardContent = (
               <Card key={index} className={`${theme.bg} ${theme.border} ${theme.hover} transition-all duration-300 hover:scale-[1.01] cursor-pointer relative overflow-hidden mb-16`}>
+                {/* Background Pattern for Billy Madison */}
+                {writeup.slug === "billy-madison-1-1" && (
+                  <div className="absolute inset-0 opacity-10">
+                    <svg viewBox="0 0 200 120" className="w-full h-full">
+                      <defs>
+                        <pattern id="movie-pattern" patternUnits="userSpaceOnUse" width="35" height="35">
+                          <rect x="5" y="5" width="25" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-400" />
+                          <circle cx="17.5" cy="14" r="3" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-400" />
+                          <path d="M14 14h7M17.5 11v6" stroke="currentColor" strokeWidth="0.3" fill="none" className="text-blue-400" />
+                          <rect x="10" y="25" width="15" height="2" fill="currentColor" className="text-blue-400" opacity="0.5" />
+                        </pattern>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#movie-pattern)" />
+                    </svg>
+                  </div>
+                )}
+
                 {/* Background Pattern for Tiki-1 */}
                 {writeup.slug === "tiki-1" && (
                   <div className="absolute inset-0 opacity-10">

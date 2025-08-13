@@ -83,7 +83,7 @@ export default function DarkHole2WriteupPage() {
     title: "DarkHole 2 - VulnHub Writeup: Or How I Learned to Stop Worrying and Love Git Disasters",
     target: "DarkHole 2 (VulnHub)",
     difficulty: "Intermediate (but the devs made it easy with their... *creative* security choices)",
-    date: "2025-08-05",
+    date: "2022-03-13",
     readTime: "20 min",
     tags: ["VulnHub", "Web Exploitation", "SQL Injection", "SSH", "Port Forwarding", "Privilege Escalation", "Git", "LinPEAS"]
   };

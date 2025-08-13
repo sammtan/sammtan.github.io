@@ -83,7 +83,7 @@ export default function Tiki1WriteupPage() {
     title: "Tiki-1 VulnHub Writeup: When CMS Security Goes Tiki-Toki Wrong",
     target: "Tiki-1 (VulnHub)",
     difficulty: "Beginner-Intermediate (but made easy by... interesting design choices)",
-    date: "2025-08-06",
+    date: "2022-04-29",
     readTime: "18 min",
     tags: ["VulnHub", "Tiki CMS", "CVE-2020-15906", "Authentication Bypass", "SMB Enumeration", "SSH", "Privilege Escalation"]
   };
