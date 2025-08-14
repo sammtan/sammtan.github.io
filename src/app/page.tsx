@@ -152,11 +152,20 @@ export default function Home() {
               <p className="text-sm text-slate-400 mb-4">Currently studying Computer Engineering at University of Indonesia</p>
 
               {/* Employment Status */}
-              <div className="flex justify-center md:justify-start mb-4">
+              <div className="flex flex-col items-center md:items-start gap-3 mb-4">
                 <Badge variant="secondary" className="bg-blue-900/50 text-blue-200 border-blue-800/50 flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                   Open to Work
                 </Badge>
+                
+                {/* Resume Viewer Button */}
+                <button
+                  onClick={() => router.push('/resumes')}
+                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600/80 to-purple-700/80 hover:from-purple-600 hover:to-purple-700 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:scale-105 border border-purple-500/50 hover:border-purple-400/50"
+                >
+                  <FileText className="w-4 h-4" />
+                  View CV/Resume
+                </button>
               </div>
               <p className="text-sm md:text-base font-medium text-slate-100 leading-relaxed">Passionate cybersecurity enthusiast with <span className="text-red-400">Advanced</span> knowledge in <span className="text-blue-400">Network</span> security, <span className="text-red-400">Digital</span> forensics, and <span className="text-blue-400">Reverse</span> engineering. <span className="text-red-400">Experienced</span> in <span className="text-blue-400">Advanced</span> persistent threat analysis and <span className="text-red-400">Security</span> operations. <span className="text-blue-400">Seeking</span> opportunities to <span className="text-red-400">Apply</span> my <span className="text-blue-400">Machine</span> learning expertise in <span className="text-red-400">Unified</span> threat detection and <span className="text-blue-400">Enhanced</span> cybersecurity <span className="text-red-400">Learning</span> systems.</p>
             </div>
