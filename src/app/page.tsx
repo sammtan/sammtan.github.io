@@ -331,6 +331,13 @@ export default function Home() {
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                  <span className="text-red-300">NetLab V2</span>
+                </div>
+                <span className="text-red-400">Docker</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
                   <span className="text-red-300">NetGuard ML</span>
                 </div>
                 <span className="text-red-400">AI/ML</span>
@@ -342,20 +349,25 @@ export default function Home() {
                 </div>
                 <span className="text-red-400">Python</span>
               </div>
-              <div className="flex items-center justify-between text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                  <span className="text-red-300">Portfolio Website</span>
-                </div>
-                <span className="text-red-400">Next.js</span>
-              </div>
             </div>
             
             {/* Tablet/Desktop version - Animated cards */}
             <div className="hidden md:block flex-1 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="project-cards-container flex gap-3 animate-slide-loop">
-                  {/* Card 1 - NetGuard ML */}
+                  {/* Card 1 - NetLab V2 */}
+                  <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                      <span className="text-xs font-medium text-red-200">NetLab V2</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Docker</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Cyber Range</span>
+                    </div>
+                  </div>
+                  
+                  {/* Card 2 - NetGuard ML */}
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
@@ -367,7 +379,7 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  {/* Card 2 - Banking Security */}
+                  {/* Card 3 - Banking Security */}
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
@@ -379,7 +391,7 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  {/* Card 3 - Portfolio Site */}
+                  {/* Card 4 - Portfolio Site */}
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
@@ -395,22 +407,22 @@ export default function Home() {
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                      <span className="text-xs font-medium text-red-200">NetGuard ML</span>
+                      <span className="text-xs font-medium text-red-200">NetLab V2</span>
                     </div>
                     <div className="flex flex-wrap gap-1">
-                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">AI/ML</span>
-                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Docker</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Cyber Range</span>
                     </div>
                   </div>
                   
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                      <span className="text-xs font-medium text-red-200">Banking Security</span>
+                      <span className="text-xs font-medium text-red-200">NetGuard ML</span>
                     </div>
                     <div className="flex flex-wrap gap-1">
-                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Python</span>
-                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">SQLite</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">AI/ML</span>
+                      <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
                     </div>
                   </div>
                 </div>

@@ -48,6 +48,17 @@ export default function ProjectsPage() {
       progress: 100
     },
     {
+      title: "NetLab V2 - Universal Parametric Cyber Range",
+      description: "Enterprise-grade network laboratory platform for cybersecurity training, research, and testing. Features dual-container architecture with complete isolation, 17-VM enterprise topology, web management dashboard with real-time monitoring, REST API, and multiple pre-built scenarios including SOC training, penetration testing, IoT security, and incident response.",
+      tech: ["Docker", "Python", "QEMU/KVM", "Alpine Linux", "Bridge Networking", "REST API", "JavaScript"],
+      status: "Completed",
+      stars: 0,
+      github: "https://github.com/sammtan/netlab-v2",
+      demo: null,
+      phase: "Completed",
+      progress: 100
+    },
+    {
       title: "SpecialistAI System",
       description: "Modular multi-agent AI system with a Coordinator model that intelligently routes tasks to specialized Expert models. Features task analysis and routing, role-based specialists (Code Expert, Data Analyst, Content Creator, General Assistant), 4-bit quantization for efficient Colab execution, and minimal dependencies. Built with clean architecture perfect for learning and extending.",
       tech: ["Python", "Transformers", "Phi-2", "PyTorch", "Google Colab"],
@@ -193,7 +204,7 @@ export default function ProjectsPage() {
           <Card className="bg-gradient-to-r from-slate-800/30 to-slate-700/30 border-slate-600 border-dashed">
             <div className="p-8">
               <h3 className="text-2xl font-semibold text-white mb-4 text-center">Development Achievements</h3>
-              <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div className="space-y-2">
                   <div className="w-12 h-12 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center">
                     <span className="text-emerald-400 font-bold">✓</span>
@@ -207,6 +218,13 @@ export default function ProjectsPage() {
                   </div>
                   <h4 className="text-emerald-400 font-semibold">NetGuard ML</h4>
                   <p className="text-slate-400 text-sm">Network security simulator with ML threat detection</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="w-12 h-12 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center">
+                    <span className="text-emerald-400 font-bold">✓</span>
+                  </div>
+                  <h4 className="text-emerald-400 font-semibold">NetLab V2</h4>
+                  <p className="text-slate-400 text-sm">Enterprise cyber range platform for training and research</p>
                 </div>
                 <div className="space-y-2">
                   <div className="w-12 h-12 mx-auto bg-green-500/20 rounded-full flex items-center justify-center">
