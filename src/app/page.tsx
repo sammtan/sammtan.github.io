@@ -157,7 +157,7 @@ export default function Home() {
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                   Open to Work
                 </Badge>
-                
+
                 {/* Resume Viewer Button */}
                 <button
                   onClick={() => router.push('/resumes')}
@@ -204,7 +204,7 @@ export default function Home() {
             <rect width="100%" height="100%" fill="url(#cert-circuit)" />
           </svg>
         </div>
-        
+
         <div className="flex flex-col h-full relative z-10">
           <div className="flex items-center gap-2 mb-3">
             <div className="relative">
@@ -213,7 +213,7 @@ export default function Home() {
             </div>
             <h3 className="font-semibold text-sm md:text-base text-blue-100">Certifications</h3>
           </div>
-          
+
           {/* Mobile/Tablet: Simple list, Desktop: Animated cards */}
           <div className="flex-1 flex flex-col justify-center">
             {/* Mobile version */}
@@ -231,7 +231,7 @@ export default function Home() {
                 <span className="text-blue-400">7 Certs</span>
               </div>
             </div>
-            
+
             {/* Tablet/Desktop version - Animated cards */}
             <div className="hidden md:block flex-1 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
@@ -247,7 +247,7 @@ export default function Home() {
                       <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Security</span>
                     </div>
                   </div>
-                  
+
                   {/* Card 2 - CCNA */}
                   <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -259,7 +259,7 @@ export default function Home() {
                       <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">Cisco</span>
                     </div>
                   </div>
-                  
+
                   {/* Card 3 - MongoDB */}
                   <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -271,7 +271,7 @@ export default function Home() {
                       <span className="text-xs bg-blue-800/30 text-blue-300 px-2 py-0.5 rounded-full">NoSQL</span>
                     </div>
                   </div>
-                  
+
                   {/* Duplicate cards for loop */}
                   <div className="cert-card flex-shrink-0 bg-blue-900/20 backdrop-blur-sm rounded-lg p-3 border border-blue-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -287,7 +287,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
           <div className="mt-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-xs text-blue-400 whitespace-nowrap">15 Professional</span>
@@ -323,7 +323,7 @@ export default function Home() {
             <rect width="100%" height="100%" fill="url(#project-circuit)" />
           </svg>
         </div>
-        
+
         <div className="flex flex-col h-full relative z-10">
           <div className="flex items-center gap-2 mb-3">
             <div className="relative">
@@ -332,7 +332,7 @@ export default function Home() {
             </div>
             <h3 className="font-semibold text-sm md:text-base text-red-100">Projects Portfolio</h3>
           </div>
-          
+
           {/* Mobile/Tablet: Simple list, Desktop: Animated cards */}
           <div className="flex-1 flex flex-col justify-center">
             {/* Mobile version */}
@@ -359,7 +359,7 @@ export default function Home() {
                 <span className="text-red-400">Python</span>
               </div>
             </div>
-            
+
             {/* Tablet/Desktop version - Animated cards */}
             <div className="hidden md:block flex-1 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
@@ -375,7 +375,7 @@ export default function Home() {
                       <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Cyber Range</span>
                     </div>
                   </div>
-                  
+
                   {/* Card 2 - NetGuard ML */}
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -387,7 +387,7 @@ export default function Home() {
                       <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Security</span>
                     </div>
                   </div>
-                  
+
                   {/* Card 3 - Banking Security */}
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -399,7 +399,7 @@ export default function Home() {
                       <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">SQLite</span>
                     </div>
                   </div>
-                  
+
                   {/* Card 4 - Portfolio Site */}
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -411,7 +411,7 @@ export default function Home() {
                       <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">React</span>
                     </div>
                   </div>
-                  
+
                   {/* Duplicate cards for loop */}
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -423,7 +423,7 @@ export default function Home() {
                       <span className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5 rounded-full">Cyber Range</span>
                     </div>
                   </div>
-                  
+
                   <div className="project-card flex-shrink-0 bg-red-900/20 backdrop-blur-sm rounded-lg p-3 border border-red-700/30 min-w-[200px]">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
@@ -438,7 +438,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
           <div className="mt-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-xs text-red-400 whitespace-nowrap">3 Completed</span>
@@ -538,13 +538,13 @@ export default function Home() {
             </div>
             <h3 className="font-semibold text-sm md:text-base text-red-100">CVE & CTF Writeups</h3>
           </div>
-          
+
           <div className="flex-1 flex flex-col justify-center">
             <div className="mb-3">
               <p className="text-xs md:text-sm text-red-300 mb-1">🆕 Latest: Billy Madison 1.1</p>
               <p className="text-xs text-red-400 mb-2">90s movie-themed VulnHub machine with port knocking and packet analysis</p>
             </div>
-            
+
             <div className="flex flex-wrap gap-1 mb-3">
               <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">Port Knocking</Badge>
               <Badge className="text-xs bg-red-800/30 text-red-300 px-2 py-0.5">Packet Analysis</Badge>
@@ -569,17 +569,26 @@ export default function Home() {
 
       {/* Personal Documentation/Blog Tile */}
       <Card
-        className="col-span-12 md:col-span-5 lg:col-span-5 row-span-2 md:row-span-2 lg:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-900/60 to-blue-950/60 border-blue-700/50 tile-hover"
+        className="col-span-12 md:col-span-5 lg:col-span-5 row-span-2 md:row-span-2 lg:row-span-2 p-4 cursor-pointer bg-gradient-to-br from-blue-900/60 to-blue-950/60 border-blue-700/50 tile-hover relative overflow-hidden group"
         onClick={() => router.push('/thoughts')}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full relative z-10">
           <div className="flex items-center gap-2 mb-3">
-            <FileText className="w-5 h-5 text-blue-400" />
+            <div className="relative">
+              <FileText className="w-5 h-5 text-blue-400" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            </div>
             <h3 className="font-semibold text-sm md:text-base text-blue-100">Letters & Thoughts</h3>
           </div>
           <div className="flex-1 flex flex-col justify-center">
-            <p className="text-xs md:text-sm text-blue-300 mb-2">Latest: &ldquo;Journey into Quantum Computing&rdquo;</p>
-            <p className="text-xs text-blue-400">Exploring the intersection of quantum mechanics and computational possibilities...</p>
+            <p className="text-xs md:text-sm text-blue-300 mb-2">✍️ Coming Soon</p>
+            <p className="text-xs text-blue-400">Personal insights, reflections on cybersecurity, technology, and innovation.</p>
+          </div>
+          <div className="mt-auto flex items-center justify-between">
+            <span className="text-xs text-blue-400">0 Articles</span>
+            <svg className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
         </div>
       </Card>
